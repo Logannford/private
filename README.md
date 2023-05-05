@@ -1,13 +1,7 @@
 # PRIVATE
 
 Private is a social media app that i'm going to (try) and develop using a modern stack to improve different areas of my knowledge.
-It will be using:
-Nuxt 3
-Vue 3
-Tailwind 
-Firebase
-Algolia
-Cypress
+It will be using: Nuxt 3, Vue 3, Tailwind, Firebase, Algolia, Cypress, Docker, Netlify
 
 # Nuxt 3 Minimal Starter
 
