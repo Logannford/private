@@ -1,6 +1,7 @@
-<template>
+<template class="flex w-full justify-center">
 	<button
 		@click="logMessage()"
+		class="bg-black rounded-xl text-white px-4 py-2"
 	>
 		{{ text }}
 	</button>
