@@ -9,7 +9,7 @@ export default defineNuxtConfig({
 				}
 			],
 			bodyAttrs: {
-				class: "bg-gray-700"
+				class: "bg-gray-700 w-full h-screen grid place-items-center"
 			}
 		}
 	},

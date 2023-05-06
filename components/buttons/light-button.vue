@@ -1,10 +1,13 @@
 <template>
 	<button
 		@click="turnBtnOn()"
-		class="bg-yellow-500 rounded-xl text-black px-4 py-2"
+		class="bg-yellow-500 rounded-xl text-black px-4 py-2 border-2 border-yellow-500 hover:bg-white duration-300"
 		ref="button"
 	>
-		<div v-if="loading">
+		<div 
+			v-if="loading"
+			class="text-black w-5 h-5 hover:text-yellow-500"
+		>
 			<Spinner />
 		</div>
 		<!-- the text is passed in as a prop when we use the button site wide -->

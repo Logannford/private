@@ -1,6 +1,6 @@
 <template>
   <div class="w-full flex justify-center">
-    <ButtonsLightButton text="test" />
+    <Login />
   </div>
 </template>
 
