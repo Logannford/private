@@ -1,13 +1,11 @@
 <template>
-  <div class="w-full flex justify-center">
-    <Login />
-  </div>
+	<div>
+		<NuxtPage />
+	</div>
 </template>
 
 <script>
-  export default{
-    setup () {
-      
-    }
-  }
+	export default {
+
+	}
 </script>
