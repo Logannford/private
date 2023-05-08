@@ -4,9 +4,15 @@
 			Welcome
 		</h1>
 		<div class="flex gap-x-4">
-			<ButtonsLightButton text="Login" />
+			<NuxtLink to="/login">
+				<ButtonsLightButton text="Login" />
+			</NuxtLink>
 			<ButtonsLightButton text="Sign up" />
 		</div>
 
 	</div>
 </template>
+
+<script setup>
+	const user = useSupabaseUser();
+</script>
