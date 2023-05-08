@@ -18,6 +18,7 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.21.0",
     "firebase": "^9.21.0",
     "vue-router": "^4.1.6"
   }
