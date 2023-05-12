@@ -2,12 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-.fade-enter-active,
-.fade-leave-active {
-	transition: opacity 0.5s ease;
+.input-dark{
+	@apply border border-gray-700 bg-transparent w-full rounded-xl px-5 py-4
 }
 
-.fade-enter-from,
-.fade-leave-to {
+.slide-fade-enter-active {
+	transition: all 1s ease-out;
+}
+
+.slide-fade-leave-active {
+	transition: all 0.1s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+	transform: translateX(20px);
 	opacity: 0;
 }
+	
