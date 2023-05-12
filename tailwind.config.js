@@ -9,7 +9,20 @@ module.exports = {
     "./app.vue",
   ],
   theme: {
-    extend: {},
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1rem",
+        sm: "2rem",
+        md: "4rem",
+        lg: "5rem"
+      }
+    },
+    extend: {
+      fontSize:{
+        title: ["3.5rem", "2.5rem"]
+      }
+    },
   },
   plugins: [],
 }
