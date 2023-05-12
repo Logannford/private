@@ -1,7 +1,10 @@
 <template>
 	<form class="" @submit.prevent="handleLogin">
-		<div class="flex flex-col gap-y-10">
-			<div>
+		<div class="flex flex-col">
+			<h3 class="text-white text-2xl font-thin">
+				Login via Magic Link
+			</h3>
+			<div class="mt-6">
 				<input 
 					class="bg-gray-900 w-full rounded-md px-4 py-2" 
 					type="email" 
@@ -9,7 +12,7 @@
 					v-model="email" 
 				/>
 			</div>
-			<div class="w-full">
+			<div class="w-full mt-4">
 				<input
 					type="submit"
 					class="

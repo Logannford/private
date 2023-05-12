@@ -13,7 +13,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="w-full h-[60vh] flex justify-between text-white gap-x-10">
+			<div class="w-full h-[40vh] flex justify-between text-white gap-x-10">
 				<div class="w-1/2">
 					<div class="w-3/4 flex flex-col gap-y-6">
 						<button 
@@ -42,6 +42,13 @@
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="w-full h-[20v] flex justify-center text-white">
+				<NuxtLink to="">
+					<span class="hover:cursor-default">
+						Forgot Password?
+					</span>
+				</NuxtLink>
 			</div>
 		</div>
 	</div>
