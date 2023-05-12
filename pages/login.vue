@@ -1,62 +1,56 @@
 <template>
-	<form class="px-10" @submit.prevent="handleLogin">
-		<div 
-			class="
-				h-full w-full bg-gray-900 rounded-md 
-				bg-clip-padding backdrop-filter 
-				backdrop-blur-sm bg-opacity-40 border border-black
-				px-6 py-3 flex flex-col gap-y-4
-				"
-			>
-			<p class="text-white text-center font-bold text-xl font-thin">Log in via magic link with your email below</p>
-			<div>
-				<input 
-					class="bg-transparent border-b border-black px-4 py-2" 
-					type="email" 
-					placeholder="Your email" 
-					v-model="email" 
-				/>
+	<div class="hidden md:block">
+		<div class="container flex flex-col justify-center h-screen">
+			<div class="flex w-full h-[40vh] items-center container gap-x-5">
+				<div class="w-full flex justify-center">
+					<div class="flex flex-col gap-y-4 text-center items-center">
+						<h1 class="text-white font-light text-title">
+							Welcome Back!
+						</h1>
+						<span class="text-lg text-gray-300 font-thin w-3/4">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor facilisis maximus. Nulla vel iaculis ante, ac pretium lacus. Integer.
+						</span>
+					</div>
+				</div>
 			</div>
-			<div v-if="emailError" class="">
-				error
-			</div>
-			<div class="w-full">
-				<input
-					type="submit"
-					class="border border-black rounded-lg px-4 py-2 w-full"
-					:value="loading ? 'Loading' : 'Send magic link'"
-					:disabled="loading"
-				/>
+			<div class="w-full h-[60vh] flex justify-between text-white gap-x-10">
+				<div class="w-1/2">
+					<div class="w-3/4 flex flex-col gap-y-6">
+						<button 
+							@click="setLoginMethod('EmailPassword')"
+							class="bg-gray-900 text-start pl-10 pr-5 py-4 text-white hover:bg-blue-900 duration-300 rounded-md"		
+						>
+							<div class="flex justify-between items-center">
+								<span>
+									Email + Password
+								</span>
+								<div class="w-4 h-4 rounded-full border border-white"></div>
+							</div>
+						</button>
+						<button 
+							@click="setLoginMethod('MagicLink')"
+							class="bg-gray-900 text-start px-10 py-4 text-white hover:bg-blue-900 duration-300 rounded-md"
+						>
+							Magic Link
+						</button>
+					</div>
+				</div>
+				<div class="w-1/2 flex justify-center">
+					<div class="w-3/4">
+						<div v-show="loginMethod == 'MagicLink'">
+							<MagicLogin />
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</form>
+	</div>
 </template>
 
-<script setup>
-import { error } from 'console'
+<script setup lang="ts">
+	const loginMethod = ref('MagicLink');
 
-const supabase = useSupabaseClient();
-
-const loading = ref(false);
-const email = ref('');
-const emailError = ref(false);
-
-const handleLogin = async () => {
-	email: email.value;
-	try {
-		if(!email)
-			emailError = true;
-		loading.value = true
-	//sign the user in with a OTP which is sent to the email address entered in the input
-	const { error } = await supabase.auth.signInWithOtp({ email });
-
-    if (error) 
-		throw error
-	alert('Check your email for the login link!')
-	} catch (error) {
-		alert(error.error_description || error.message)
-	} finally {
-		loading.value = false
+	function setLoginMethod(method: string) {
+		loginMethod.value = method;
 	}
-}
 </script>
