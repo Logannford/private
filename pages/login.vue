@@ -53,10 +53,8 @@
 					</div>
 					<div class="w-1/2 flex justify-end">
 						<div class="w-3/4">
-							<Transition>
-								<div v-show="loginMethod == 'MagicLink'">
-									<MagicLogin />
-								</div>
+							<Transition name="fade" mode="out-in">
+								<component :is="loginMethod"></component>
 							</Transition>
 						</div>
 					</div>
@@ -74,7 +72,8 @@
 </template>
 
 <script setup lang="ts">
-	const loginMethod = ref('MagicLink');
+	import { shallowRef } from 'vue';
+	const loginMethod = shallowRef('MagicLink');
 
 	function setLoginMethod(method: string) {
 		loginMethod.value = method;
