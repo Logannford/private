@@ -6,7 +6,7 @@
 			</h3>
 			<div class="mt-6">
 				<input 
-					class="bg-gray-900 w-full rounded-md px-4 py-2" 
+					class="bg-gray-900 w-full rounded-md px-5 py-4" 
 					type="email" 
 					placeholder="Your email" 
 					v-model="email" 
@@ -37,7 +37,14 @@ const handleLogin = async () => {
 	try {
 		loading.value = true
 		//sign the user in with a OTP which is sent to the email address entered in the input
-		const { error } = await supabase.auth.signInWithOtp({ email: email.value });
+		const { error } = await supabase.auth.signInWithOtp({ 
+				email: email.value,
+				SignInWithPasswordlessCredentials: {
+					options: {
+						shouldCreateUser: false
+					}
+				}
+			});
 
     if (error) 
 		throw error

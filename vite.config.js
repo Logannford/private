@@ -1,7 +1,9 @@
-export default{
+// vite.config.js
+
+export default {
 	server: {
 		hmr: {
-			overlay: false
-		}
-	}
-}
+			overlay: false,
+		},
+	},
+};
