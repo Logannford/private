@@ -16,14 +16,20 @@ module.exports = {
         sm: "2rem",
         md: "4rem",
         lg: "5rem"
-      }
+      },
+      backdropFilter: {
+        'none': 'none',
+        'blur': 'blur(20px)',
+      },
     },
     extend: {
       fontSize:{
-        title: ["3.5rem", "2.5rem"]
+        title: ["5rem", "4rem"]
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-filters'),
+  ],
 }
 
