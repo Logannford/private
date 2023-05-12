@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	modules: ['@nuxtjs/supabase'],
+	modules: [
+		'@nuxtjs/supabase',
+		'@nuxtjs/google-fonts'
+	],
 	app:{
 		head: {
 			meta: [
@@ -10,7 +13,7 @@ export default defineNuxtConfig({
 				}
 			],
 			bodyAttrs: {
-				class: "bg-gray-700 w-full h-screen grid place-items-center"
+				class: "bg-gray-950 w-full h-screen"
 			}
 		}
 	},
@@ -20,6 +23,9 @@ export default defineNuxtConfig({
 			tailwindcss: {},
 			autoprefixer: {},
 		},
+	},
+	googleFonts: {
+		download: true
 	},
 	components: true,
 	pages: true,
