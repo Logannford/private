@@ -23,6 +23,7 @@
     "@supabase/supabase-js": "^2.21.0",
     "@vue/reactivity": "^3.3.2",
     "firebase": "^9.21.0",
+    "nuxt-swiper": "^1.1.0",
     "tailwindcss-filters": "^3.0.0",
     "vue-router": "^4.1.6"
   }

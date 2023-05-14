@@ -2,7 +2,8 @@
 export default defineNuxtConfig({
 	modules: [
 		'@nuxtjs/supabase',
-		'@nuxtjs/google-fonts'
+		'@nuxtjs/google-fonts',
+		'nuxt-swiper'
 	],
 	app:{
 		head: {
@@ -16,6 +17,9 @@ export default defineNuxtConfig({
 				class: "bg-gray-950 w-full h-screen"
 			}
 		}
+	},
+	swiper: {
+
 	},
 	css: ['~/assets/css/main.css'],
 	postcss: {
