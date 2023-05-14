@@ -3,7 +3,8 @@ export default defineNuxtConfig({
 	modules: [
 		'@nuxtjs/supabase',
 		'@nuxtjs/google-fonts',
-		'nuxt-swiper'
+		'nuxt-swiper',
+		'@vueuse/nuxt'
 	],
 	app:{
 		head: {

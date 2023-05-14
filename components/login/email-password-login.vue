@@ -39,6 +39,14 @@
 				<div class="mt-8 w-full">
 					<ButtonsLightButton text="Log in" />
 				</div>
+				<NuxtLink class="mt-4" to="/signup" >
+					<span class="hover:cursor-pointer flex gap-x-2 items-center">
+						Don't have an account?
+						<p class="text-blue-500 hover:text-blue-900 duration-300">
+							Sign up
+						</p>
+					</span>
+				</NuxtLink>
 			</div>
 		</div>
 	</form>

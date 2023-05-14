@@ -10,6 +10,9 @@
 						<span class="text-lg text-gray-300 font-thin">
 							Choose a method to log into your account.
 						</span>
+						<ClientOnly>
+							<ThreeJs/>
+						</ClientOnly>
 					</div>
 					<div class="w-1/2 flex justify-end">
 						<div class="w-3/4 py-10 flex flex-col gap-y-14">
@@ -53,29 +56,39 @@
 										class="bg-gray-900 text-start px-5 py-4 text-white hover:bg-blue-900 duration-300 rounded-md"
 										v-if="loginMethod != 'MagicLink'"
 									>
-									<div class="flex justify-between items-center">
-										<span class="text-xl">
-											Magic Link
-										</span>
-										<div 
-											class="w-4 h-4 rounded-full border border-white"
-											:class="
-												{'bg-green-500 border !border-green-500' : loginMethod == 'MagicLink'
-											}"
-										></div>
-									</div>
+										<div class="flex justify-between items-center">
+											<span class="text-xl">
+												Magic Link
+											</span>
+											<div 
+												class="w-4 h-4 rounded-full border border-white"
+												:class="
+													{'bg-green-500 border !border-green-500' : loginMethod == 'MagicLink'
+												}"
+											></div>
+										</div>
+									</button>
+									<button 
+										@click="setLoginMethod('Google')"
+										class="bg-gray-900 text-start px-5 py-4 text-white hover:bg-blue-900 duration-300 rounded-md"
+										v-if="loginMethod != 'Google'"
+									>
+										<div class="flex justify-between items-center">
+											<span class="text-xl">
+												Google
+											</span>
+											<div 
+												class="w-4 h-4 rounded-full border border-white"
+												:class="
+													{'bg-green-500 border !border-green-500' : loginMethod == 'Google'
+												}"
+											></div>
+										</div>
 									</button>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="w-full flex justify-center text-white mt-5">
-					<NuxtLink to="">
-						<span class="hover:cursor-pointer">
-							Forgot Password?
-						</span>
-					</NuxtLink>
 				</div>
 			</div>
 		</div>
