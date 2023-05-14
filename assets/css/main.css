@@ -19,4 +19,17 @@
 	transform: translateX(20px);
 	opacity: 0;
 }
+
+input[type=radio]{
+    display:none;
+}
+input[type=radio] + label{
+    border: 1px solid black;
+    background-color: red;
+    border-radius: 50%;
+    display: block;
+}
+input[type=radio]:checked + label{
+    background-color: green;
+}
 	
