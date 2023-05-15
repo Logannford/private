@@ -1,65 +1,82 @@
 <template>
 	<div>
-		<canvas ref="animation" />
+		<div ref="container">
+			<canvas ref="animation" />
+		</div>
 	</div>
 </template>
+
 <script setup lang="ts">
-	import { Scene, PerspectiveCamera, Mesh, BoxGeometry, MeshBasicMaterial, WebGLRenderer } from 'three'
-	import { Ref } from 'vue'
-	import { useWindowSize } from '@vueuse/core'
+	import { ref, onMounted, watch, computed } from 'vue';
+	import * as THREE from 'three';
+	import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+	import { useWindowSize } from '@vueuse/core';
 
-	//creating the renderer
-	let renderer: WebGLRenderer
-	const animation: Ref<HTMLCanvasElement | null> = ref(null)
+	// Creating the renderer
+	let renderer = new THREE.WebGLRenderer();
+	const animation = ref<HTMLCanvasElement | null>(null);
+	const container = ref<HTMLDivElement | null>(null);
 
-	//setting the size of the window
-	const { width, height } = useWindowSize()
-	const aspectRatio = computed(() => width.value / height.value)
+	// Setting the size of the window
+	const { width, height } = useWindowSize();
+	const aspectRatio = computed(() => width.value / height.value);
 
-	const scene = new Scene()
+	const scene = new THREE.Scene();
 
-	const camera = new PerspectiveCamera(75, aspectRatio.value, 0.1, 1000)
-	camera.position.set(0, 0, 4)
+	const camera = new THREE.PerspectiveCamera(75, aspectRatio.value, 0.1, 1000);
+	camera.position.set(0, 0, 4);
 
-	scene.add(camera)
+	// Add the perspective camera to the scene
+	scene.add(camera);
 
-	const cube = new Mesh(
-		new BoxGeometry(1, 1, 1, 32, 32),
-		new MeshBasicMaterial({ color: 0x008080})
-	)
+	// Make the cube
+	const cube = new THREE.Mesh(
+		new THREE.BoxGeometry(1, 1, 1, 32, 32),
+		new THREE.MeshBasicMaterial({ color: 0x008080 })
+	);
 
-	scene.add(cube)
+	// Add the cube to the scene
+	scene.add(cube);
+
+	// Making the orbit controls
+	let controls: OrbitControls | null = null;
 
 	function updateCamera() {
-		camera.aspect = aspectRatio.value
-		camera.updateProjectionMatrix()
+		camera.aspect = aspectRatio.value;
+		camera.updateProjectionMatrix();
 	}
 
 	function updateRenderer() {
-		renderer.setSize(width.value, height.value)
-		renderer.render(scene, camera)
+		renderer.setSize(width.value, height.value);
+		renderer.render(scene, camera);
 	}
 
 	function setRenderer() {
 		if (animation.value) {
-			renderer = new WebGLRenderer({ canvas: animation.value })
-			renderer.setClearColor( 0xffffff, 0);
-			updateRenderer()
+		renderer = new THREE.WebGLRenderer({ canvas: animation.value });
+		renderer.setClearColor(0xffffff, 0);
+		updateRenderer();
 		}
 	}
 
 	watch(aspectRatio, () => {
-		updateCamera()
-		updateRenderer()
-	})
+		if (controls) {
+		controls.update();
+		}
+		updateCamera();
+		updateRenderer();
+	});
 
 	onMounted(() => {
-		setRenderer()
-		loop()
-	})
+		if (container.value) {
+		controls = new OrbitControls(camera, container.value);
+		}
+		setRenderer();
+		loop();
+	});
 
 	const loop = () => {
-		updateRenderer()
-		requestAnimationFrame(loop)
-	}
+		updateRenderer();
+		requestAnimationFrame(loop);
+	};
 </script>
