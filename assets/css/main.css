@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 .input-dark{
-	@apply bg-gray-900 w-full rounded-md px-3 py-3
+	@apply bg-light-black w-full rounded-md px-3 py-3 border border-onyx-black
+}
+
+.button-dark{
+    @apply bg-light-black text-start px-5 py-4 text-white hover:bg-blue-900 duration-300 rounded-md border border-onyx-black
 }
 
 .layout-enter-active,

@@ -19,7 +19,7 @@ export default defineNuxtConfig({
 				}
 			],
 			bodyAttrs: {
-				class: "bg-gray-950 w-full h-screen"
+				class: "bg-dark-black w-full h-screen"
 			}
 		}
 	},

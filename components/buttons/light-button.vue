@@ -7,7 +7,7 @@
 	>
 		<div 
 			v-if="loading"
-			class="text-black w-5 h-5 hover:text-yellow-500"
+			class="text-white w-5 h-5 w-full flex justify-center"
 		>
 			<Spinner />
 		</div>

@@ -32,7 +32,7 @@
 								<div class="flex flex-col gap-y-6 w-full">
 									<button 
 										@click="setLoginMethod('EmailPassword')"
-										class="bg-gray-900 text-start px-5 py-4 text-white hover:bg-blue-900 duration-300 rounded-md"		
+										class="button-dark"		
 										v-if="loginMethod != 'EmailPassword'"
 									>
 										<div class="flex justify-between items-center">
@@ -49,7 +49,7 @@
 									</button>
 									<button 
 										@click="setLoginMethod('MagicLink')"
-										class="bg-gray-900 text-start px-5 py-4 text-white hover:bg-blue-900 duration-300 rounded-md"
+										class="button-dark"
 										v-if="loginMethod != 'MagicLink'"
 									>
 										<div class="flex justify-between items-center">
@@ -66,7 +66,7 @@
 									</button>
 									<button 
 										@click="setLoginMethod('Google')"
-										class="bg-gray-900 text-start px-5 py-4 text-white hover:bg-blue-900 duration-300 rounded-md"
+										class="button-dark"
 										v-if="loginMethod != 'Google'"
 									>
 										<div class="flex justify-between items-center">

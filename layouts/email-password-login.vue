@@ -9,6 +9,7 @@
 					v-model="email"
 					placeholder="hello@example.com"
 					name="emailAddress"
+					autocomplete="on"
 				/>
 			</div>
 			<div class="mt-4">
@@ -19,6 +20,7 @@
 					v-model="password"
 					placeholder="••••••••"
 					name="password"
+					autocomplete="on"
 				/>
 			</div>
 			<div class="flex items-center mt-4">
@@ -33,7 +35,7 @@
 				<label class="ml-2" for="rememberMe">Remember me</label>
 			</div>
 			<div class="mt-8 w-full">
-				<ButtonsLightButton text="Log in" />
+				<ButtonsLightButton :buttonClick="handleLogin" text="Log in" />
 			</div>
 		</div>
 	</form>
@@ -64,6 +66,7 @@
 			alert(error.error_description || error.message)
 		}
 		finally{
+			alert("Welcome back!");
 			loading.value = false;
 		}
 	}	
