@@ -26,6 +26,10 @@ export default defineNuxtConfig({
 	swiper: {
 
 	},
+	runtimeConfig:{
+		supabase_db_url: "",
+		supabase_db_anon_key: ""
+	},
 	css: ['~/assets/css/main.css'],
 	postcss: {
 		plugins: {

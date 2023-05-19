@@ -113,6 +113,7 @@
 	const loginMethod = ref('EmailPassword');
 
 	function setLoginMethod(method: string) {
+		console.log(import.meta.env.NUXT_SUPABASE_ANON_KEY)
 		loginMethod.value = method;
 	}
 </script>
