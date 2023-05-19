@@ -47,6 +47,8 @@
 	const email = ref("");
 	const password = ref("");
 	const rememberMe = false;
+	//setting up the router
+	const router = useRouter();
 
 	const loading = ref(false);
 
@@ -61,6 +63,8 @@
 			});
 			if(error)
 				throw error;
+			else
+				router.push("/");
 		}
 		catch(error){
 			alert(error.error_description || error.message)

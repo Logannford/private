@@ -10,3 +10,4 @@ dist
 .htaccess
 /firebase.js
 /cypress.config.ts
+NOTES.txt
