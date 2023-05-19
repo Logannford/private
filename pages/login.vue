@@ -23,28 +23,13 @@
 						</ClientOnly>
 					</div>
 					<div class="w-1/2 flex justify-end">
-						<div class="w-3/4 flex flex-col gap-y-7 justify-between">
-							<h3 class="text-white text-5xl font-thin mb-2">
+						<div class="w-3/4 flex flex-col gap-y-7">
+							<h3 class="text-white text-3xl font-thin mb-2">
 								Log in
 							</h3>
-							<div class="h-full flex flex-col justify-end">
-								<div v-show="loginMethod == 'MagicLink'">
-									<NuxtLayout :name="magicSignUp">
-										<NuxtPage />
-									</NuxtLayout>
-								</div>
-								<div v-if="loginMethod == 'EmailPassword'">
-									<NuxtLayout :name="EmailPassword">
-										<NuxtPage />
-									</NuxtLayout>
-								</div>
-							</div>
 							<!-- alt methods of logging in -->
 							<div>
-								<div class="relative flex flex-col justify-center w-full">
-									<CssTextLine text="Or" />
-								</div>
-								<div class="flex flex-col gap-y-6 w-full mt-8">
+								<div class="flex flex-col gap-y-6 w-full">
 									<button 
 										@click="setLoginMethod('EmailPassword')"
 										class="bg-gray-900 text-start px-5 py-4 text-white hover:bg-blue-900 duration-300 rounded-md"		
@@ -96,6 +81,21 @@
 											></div>
 										</div>
 									</button>
+									<div class="relative flex flex-col justify-center w-full">
+										<CssTextLine text="Or" />
+									</div>
+								</div>
+							</div>
+							<div class="h-full flex flex-col">
+								<div v-show="loginMethod == 'MagicLink'">
+									<NuxtLayout :name="magicSignUp">
+										<NuxtPage />
+									</NuxtLayout>
+								</div>
+								<div v-if="loginMethod == 'EmailPassword'">
+									<NuxtLayout :name="EmailPassword">
+										<NuxtPage />
+									</NuxtLayout>
 								</div>
 							</div>
 						</div>

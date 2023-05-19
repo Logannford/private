@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .input-dark{
-	@apply border border-gray-700 bg-transparent w-full rounded-xl px-5 py-4
+	@apply border border-gray-700 bg-transparent w-full rounded-xl px-3 py-2
 }
 
 .layout-enter-active,

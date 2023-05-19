@@ -2,22 +2,22 @@
 	<form @submit.prevent="handleLogin">
 		<div class="flex flex-col">
 			<div>
-				<label class="text-white font-light pb-2" for="emailAddress">Email Address</label>
+				<label class="text-white font-light pb-2" for="emailAddress">Email</label>
 				<input 
 					class="input-dark mt-2"
 					type="email"
 					v-model="email"
-					placeholder="hello@test.com"
+					placeholder="hello@example.com"
 					name="emailAddress"
 				/>
 			</div>
-			<div class="mt-8">
+			<div class="mt-4">
 				<label class="text-white font-light pb-2" for="password">Password</label>
 				<input 
 					class="input-dark mt-2"
 					type="password"
 					v-model="password"
-					placeholder="password123"
+					placeholder="••••••••"
 					name="password"
 				/>
 			</div>
