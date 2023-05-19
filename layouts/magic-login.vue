@@ -6,7 +6,7 @@
 			</h3>
 			<div class="mt-6">
 				<input 
-					class="bg-gray-900 w-full rounded-md px-5 py-4" 
+					class="input-dark" 
 					type="email" 
 					placeholder="Your email" 
 					v-model="email" 

@@ -39,14 +39,32 @@
 	</form>
 </template>
 
-<script setup lang="ts">
+<script setup>
+	const supabase = useSupabaseClient();
 	//setting up da things we needs
 	const email = ref("");
 	const password = ref("");
 	const rememberMe = false;
 
+	const loading = ref(false);
+
 	//method to handle the login
 	const handleLogin = async () => {
-
-	}
+		try {
+			//start that loading spinner!
+			loading.value = true;
+			const { data, error } = await supabase.auth.signInWithPassword({
+				email: email.value,
+				password: password.value
+			});
+			if(error)
+				throw error;
+		}
+		catch(error){
+			alert(error.error_description || error.message)
+		}
+		finally{
+			loading.value = false;
+		}
+	}	
 </script>
