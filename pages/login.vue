@@ -3,20 +3,31 @@
 		<div class="hidden md:block">
 			<div class="container flex flex-col justify-center h-screen">
 				<div class="w-full h-[75vh] flex justify-between text-white gap-x-10">
-					<div class="w-1/2 mr-20 flex flex-col gap-y-4 h-full py-20 justify-start">
+					<div class="w-1/2 mr-20 flex flex-col gap-y-4 h-full py-10 justify-start">
 						<h1 class="text-white font-light text-4xl lg:text-5xl">
 							Welcome Back!
 						</h1>
 						<span class="text-lg text-gray-300 font-thin">
 							Choose a method to log into your account.
 						</span>
+						<NuxtLink class="mt-1" to="/signup" >
+							<span class="hover:cursor-pointer flex gap-x-2 items-center font-thin">
+								Don't have an account?
+								<p class="text-blue-500 hover:text-blue-900 duration-300">
+									Sign up
+								</p>
+							</span>
+						</NuxtLink>
 						<ClientOnly>
 							<ThreeJs/>
 						</ClientOnly>
 					</div>
 					<div class="w-1/2 flex justify-end">
-						<div class="w-3/4 py-10 flex flex-col gap-y-14">
-							<div>
+						<div class="w-3/4 flex flex-col gap-y-7 justify-between">
+							<h3 class="text-white text-5xl font-thin mb-2">
+								Log in
+							</h3>
+							<div class="h-full flex flex-col justify-end">
 								<div v-show="loginMethod == 'MagicLink'">
 									<NuxtLayout :name="magicSignUp">
 										<NuxtPage />
