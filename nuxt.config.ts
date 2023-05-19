@@ -7,6 +7,10 @@ export default defineNuxtConfig({
 		'@vueuse/nuxt'
 	],
 	app:{
+		layoutTransition: { 
+			name: 'layout', 
+			mode: 'out-in' 
+		},
 		head: {
 			meta: [
 				{

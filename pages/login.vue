@@ -17,16 +17,16 @@
 					<div class="w-1/2 flex justify-end">
 						<div class="w-3/4 py-10 flex flex-col gap-y-14">
 							<div>
-								<Transition name="slide-fade">
-									<div v-show="loginMethod == 'MagicLink'">
-										<LoginMagicLogin />
-									</div>
-								</Transition>
-								<Transition name="slide-fade">
-									<div v-if="loginMethod == 'EmailPassword'">
-										<LoginEmailPasswordLogin />
-									</div>
-								</Transition>
+								<div v-show="loginMethod == 'MagicLink'">
+									<NuxtLayout :name="magicSignUp">
+										<NuxtPage />
+									</NuxtLayout>
+								</div>
+								<div v-if="loginMethod == 'EmailPassword'">
+									<NuxtLayout :name="EmailPassword">
+										<NuxtPage />
+									</NuxtLayout>
+								</div>
 							</div>
 							<!-- alt methods of logging in -->
 							<div>
@@ -96,6 +96,9 @@
 </template>
 
 <script setup lang="ts">
+	//getting the layouts
+	const magicSignUp = "magic-login";
+	const EmailPassword = "email-password-login";
 	const loginMethod = ref('EmailPassword');
 
 	function setLoginMethod(method: string) {

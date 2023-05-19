@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="w-full h-full">
 		<div ref="container">
 			<canvas ref="animation" />
 		</div>
@@ -16,10 +16,11 @@
 	let renderer = new THREE.WebGLRenderer();
 	const animation = ref<HTMLCanvasElement | null>(null);
 	const container = ref<HTMLDivElement | null>(null);
+	const width = container.value?.clientWidth ?? 1024;
+	const height = container.value?.clientHeight ?? 1024;
 
 	// Setting the size of the window
-	const { width, height } = useWindowSize();
-	const aspectRatio = computed(() => width.value / height.value);
+	const aspectRatio = computed(() => width / height);
 
 	const scene = new THREE.Scene();
 
@@ -41,12 +42,14 @@
 	// Making the orbit controls
 	let controls: OrbitControls | null = null;
 
+	//updating the camera based on aspect ratio value
 	function updateCamera() {
 		camera.aspect = aspectRatio.value;
 		camera.updateProjectionMatrix();
 	}
 
-	function updateRenderer() {
+	function updateRenderer(){
+		//Resizes the output canvas to (width, height), and also sets the viewport to fit that size
 		renderer.setSize(width.value, height.value);
 		renderer.render(scene, camera);
 	}
@@ -60,17 +63,15 @@
 	}
 
 	watch(aspectRatio, () => {
-		if (controls) {
-		controls.update();
-		}
+		if(controls)
+			controls.update();
 		updateCamera();
 		updateRenderer();
 	});
 
 	onMounted(() => {
-		if (container.value) {
-		controls = new OrbitControls(camera, container.value);
-		}
+		if (container.value)
+			controls = new OrbitControls(camera, container.value);
 		setRenderer();
 		loop();
 	});
