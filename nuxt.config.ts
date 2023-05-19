@@ -1,7 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	modules: ['@nuxtjs/supabase'],
+	modules: [
+		'@nuxtjs/supabase',
+		'@nuxtjs/google-fonts',
+		'nuxt-swiper',
+		'@vueuse/nuxt'
+	],
 	app:{
+		layoutTransition: { 
+			name: 'layout', 
+			mode: 'out-in' 
+		},
 		head: {
 			meta: [
 				{
@@ -10,9 +19,12 @@ export default defineNuxtConfig({
 				}
 			],
 			bodyAttrs: {
-				class: "bg-gray-700 w-full h-screen grid place-items-center"
+				class: "bg-dark-black w-full h-screen"
 			}
 		}
+	},
+	swiper: {
+
 	},
 	css: ['~/assets/css/main.css'],
 	postcss: {
@@ -21,6 +33,19 @@ export default defineNuxtConfig({
 			autoprefixer: {},
 		},
 	},
+	googleFonts: {
+		download: true,
+		families: {
+			Roboto: true,
+			'Josefin+Sans': true,
+			Lato: [100, 300],
+			Raleway: {
+			wght: [100, 400],
+			ital: [100]
+			},
+		}
+	},
 	components: true,
 	pages: true,
+
 })
