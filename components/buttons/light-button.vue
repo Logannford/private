@@ -1,12 +1,13 @@
 <template>
 	<button
 		@click="turnBtnOn()"
-		class="bg-yellow-500 rounded-xl text-black px-4 py-2 border-2 border-yellow-500 hover:bg-white duration-300"
+		class="bg-blue-600 rounded-xl w-full text-white px-4 py-2 border-2 border-blue-600 hover:bg-transparent duration-300"
 		ref="button"
+		type="submit"
 	>
 		<div 
 			v-if="loading"
-			class="text-black w-5 h-5 hover:text-yellow-500"
+			class="text-white w-5 h-5 w-full flex justify-center"
 		>
 			<Spinner />
 		</div>
