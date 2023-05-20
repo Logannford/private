@@ -37,6 +37,9 @@
 			<div class="mt-8 w-full">
 				<ButtonsLightButton :buttonClick="handleLogin" text="Log in" />
 			</div>
+			<div v-if="userStore" class="">
+
+			</div>
 		</div>
 	</form>
 </template>
@@ -50,28 +53,14 @@
 	//setting up the router
 	const router = useRouter();
 
+	//now lets get the data from the user
+	const { data: { user } } = await supabase.auth.getUser()
+
+	onMounted(() => {
+		console.log(user);
+	})
+
 	const loading = ref(false);
 
-	//method to handle the login
-	const handleLogin = async () => {
-		try {
-			//start that loading spinner!
-			loading.value = true;
-			const { data, error } = await supabase.auth.signInWithPassword({
-				email: email.value,
-				password: password.value
-			});
-			if(error)
-				throw error;
-			else
-				router.push("/");
-		}
-		catch(error){
-			alert(error.error_description || error.message)
-		}
-		finally{
-			alert("Welcome back!");
-			loading.value = false;
-		}
-	}	
+	
 </script>
