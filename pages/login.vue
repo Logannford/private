@@ -39,46 +39,34 @@
 											<span class="text-xl">
 												Email + Password
 											</span>
-											<div 
-												class="w-4 h-4 rounded-full border border-white"
-												:class="{
-													'bg-green-500 border !border-green-500' : loginMethod == 'EmailPassword'
-												}"
-											></div>
 										</div>
 									</button>
 									<button 
 										@click="setLoginMethod('MagicLink')"
-										class="button-dark"
+										class="button-dark flex items-center gap-x-3"
 										v-if="loginMethod != 'MagicLink'"
 									>
+										<div class="text-white w-6 h-6">
+											<IconsSend />
+										</div>
 										<div class="flex justify-between items-center">
 											<span class="text-xl">
 												Magic Link
 											</span>
-											<div 
-												class="w-4 h-4 rounded-full border border-white"
-												:class="
-													{'bg-green-500 border !border-green-500' : loginMethod == 'MagicLink'
-												}"
-											></div>
 										</div>
 									</button>
 									<button 
 										@click="setLoginMethod('Google')"
-										class="button-dark"
+										class="button-dark flex items-center gap-x-3"
 										v-if="loginMethod != 'Google'"
 									>
+										<div class="text-white w-6 h-6">
+											<IconsGoogle />
+										</div>
 										<div class="flex justify-between items-center">
 											<span class="text-xl">
 												Google
 											</span>
-											<div 
-												class="w-4 h-4 rounded-full border border-white"
-												:class="
-													{'bg-green-500 border !border-green-500' : loginMethod == 'Google'
-												}"
-											></div>
 										</div>
 									</button>
 									<div class="relative flex flex-col justify-center w-full">
@@ -87,12 +75,12 @@
 								</div>
 							</div>
 							<div class="h-full flex flex-col">
-								<div v-show="loginMethod == 'MagicLink'">
+								<div v-if="loginMethod == 'MagicLink'">
 									<NuxtLayout :name="magicSignUp">
 										<NuxtPage />
 									</NuxtLayout>
 								</div>
-								<div v-if="loginMethod == 'EmailPassword'">
+								<div v-show="loginMethod == 'EmailPassword'">
 									<NuxtLayout :name="EmailPassword">
 										<NuxtPage />
 									</NuxtLayout>

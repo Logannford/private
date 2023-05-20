@@ -35,10 +35,29 @@
 				<label class="ml-2" for="rememberMe">Remember me</label>
 			</div>
 			<div class="mt-8 w-full">
-				<ButtonsLightButton :buttonClick="handleLogin" text="Log in" />
+				<button
+					class="
+						bg-gradient-to-r from-cyan-500 to-blue-500 
+						rounded-xl w-full text-white px-6 py-4 duration-300
+						hover:cursor-pointer hover:text-black
+					"
+					ref="button"
+					type="submit"
+				>
+					<div 
+						v-if="loading"
+						class="text-white w-5 h-5 w-full flex justify-center"
+					>
+						<Spinner />
+					</div>
+					<!-- the text is passed in as a prop when we use the button site wide -->
+					<span v-if="!loading">
+						Log in
+					</span>
+				</button>
 			</div>
-			<div v-if="userStore" class="">
-
+			<div v-if="errorOccurred" class="flex justify-center w-full mt-2 text-red-500">
+				{{ errorMessage ? errorMessage : "An error occurred" }}
 			</div>
 		</div>
 	</form>
@@ -57,10 +76,37 @@
 	const { data: { user } } = await supabase.auth.getUser()
 
 	onMounted(() => {
-		console.log(user);
-	})
+		//console.log(user);
+	});
 
 	const loading = ref(false);
 
-	
+	//data for the login error
+	let errorOccurred = ref(false);
+	let errorMessage = String;
+
+	//method to handle the login
+	const handleLogin = async () => {
+		try {
+			//start that loading spinner!
+			loading.value = true;
+			const { data, error } = await supabase.auth.signInWithPassword({
+				email: email.value,
+				password: password.value
+			});
+			if(error)
+				throw error;
+			else
+				router.push("/");
+		}
+		catch(error){
+			errorOccurred.value = true;
+			errorMessage = error.error_description || error.message;
+		}
+		finally{
+			if(user)
+				alert("welcome back!");
+			loading.value = false;
+		}
+	}	
 </script>
