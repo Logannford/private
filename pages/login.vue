@@ -1,9 +1,9 @@
 <template>
 	<div>
 		<div class="hidden md:block">
-			<div class="container flex flex-col justify-center h-screen">
-				<div class="w-full h-[75vh] flex justify-between text-white gap-x-10">
-					<div class="w-1/2 mr-20 flex flex-col gap-y-4 h-full py-10 justify-start">
+			<div class="">
+				<div class="flex text-white">
+					<div class="bg-dark-black w-7/12 mr-20 flex flex-col gap-y-4 justify-start container self-center">
 						<h1 class="text-white font-light text-4xl lg:text-5xl">
 							Welcome Back!
 						</h1>
@@ -22,8 +22,8 @@
 							<ThreeJs/>
 						</ClientOnly>
 					</div>
-					<div class="w-1/2 flex justify-end">
-						<div class="w-3/4 flex flex-col gap-y-7">
+					<div class="container w-5/12 h-screen bg-light-black flex items-center justify-end border-l border-gray-600">
+						<div class="w-full flex flex-col gap-y-7">
 							<h3 class="text-white text-3xl font-thin mb-2">
 								Log in
 							</h3>

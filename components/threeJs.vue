@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full h-full">
+	<div class="">
 		<div ref="container">
 			<canvas ref="animation" />
 		</div>

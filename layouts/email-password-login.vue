@@ -10,6 +10,9 @@
 					placeholder="hello@example.com"
 					name="emailAddress"
 					autocomplete="on"
+					:class="{
+						'outline outline-red-500': errorOccurred
+					}"
 				/>
 			</div>
 			<div class="mt-4">
@@ -21,6 +24,9 @@
 					placeholder="••••••••"
 					name="password"
 					autocomplete="on"
+					:class="{
+						'outline outline-red-500': errorOccurred
+					}"
 				/>
 			</div>
 			<div class="flex items-center mt-4">
@@ -39,7 +45,7 @@
 					class="
 						bg-gradient-to-r from-cyan-500 to-blue-500 
 						rounded-xl w-full text-white px-6 py-4 duration-300
-						hover:cursor-pointer hover:text-black
+						hover:cursor-pointer hover:opacity-50
 					"
 					ref="button"
 					type="submit"
@@ -79,6 +85,7 @@
 		//console.log(user);
 	});
 
+	//loading state for loading spinner
 	const loading = ref(false);
 
 	//data for the login error
@@ -97,6 +104,7 @@
 			if(error)
 				throw error;
 			else
+				//if there is no error, the user is authed so redirect to homepage
 				router.push("/");
 		}
 		catch(error){
