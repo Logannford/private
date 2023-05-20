@@ -4,7 +4,8 @@ export default defineNuxtConfig({
 		'@nuxtjs/supabase',
 		'@nuxtjs/google-fonts',
 		'nuxt-swiper',
-		'@vueuse/nuxt'
+		'@vueuse/nuxt',
+		'@pinia/nuxt'
 	],
 	app:{
 		layoutTransition: { 
