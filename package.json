@@ -32,5 +32,8 @@
     "three": "^0.152.2",
     "three-orbitcontrols": "^2.110.3",
     "vue-router": "^4.1.6"
+  },
+  "overrides": {
+    "vue": "latest"
   }
 }
