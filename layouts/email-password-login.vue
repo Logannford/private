@@ -44,7 +44,7 @@
 				<button
 					class="
 						bg-gradient-to-r from-cyan-500 to-blue-500 
-						rounded-xl w-full text-white px-6 py-4 duration-300
+						rounded-xl w-full text-white p-3 md:px-6 md:py-4 duration-300
 						hover:cursor-pointer hover:opacity-50
 					"
 					ref="button"
@@ -90,7 +90,7 @@
 
 	//data for the login error
 	let errorOccurred = ref(false);
-	let errorMessage = "";
+	let errorMessage: string = "";
 
 	//method to handle the login
 	const handleLogin = async () => {

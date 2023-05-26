@@ -58,7 +58,7 @@
 				<button
 					class="
 						bg-gradient-to-r from-cyan-500 to-blue-500 
-						rounded-xl w-full text-white px-6 py-4 duration-300
+						rounded-xl w-full text-white p-3 md:px-6 md:py-4 duration-300
 						hover:cursor-pointer hover:opacity-50 disabled:opacity-50 disabled:cursor-not-allowed
 					"
 					ref="button"
@@ -122,7 +122,7 @@
 			//set loading to true
 			loading.value = true;
 			//check if the passwords match, if not then throw an error and exit early
-			const { user, error } = await supabase.auth.signUp({
+			const { data, error } = await supabase.auth.signUp({
 				email: email.value,
 				password: password.value,
 			});
