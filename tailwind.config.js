@@ -28,8 +28,8 @@ module.exports = {
         title: ["5rem", "4rem"]
       },
       colors: {
-        "dark-black": "#1c1c1c",
-        "light-black": "#292828",
+        "dark-black": "#0A0A0A",
+        "light-black": "#1c1c1c",
         "onyx-black": "#3E3E3E"
       }
     },

@@ -24,7 +24,7 @@
 					</div>
 					<div class="w-full md:w-5/12 h-screen bg-dark-black md:bg-light-black flex md:items-center md:justify-end md:border-l md:border-gray-600">
 						<div class="container w-full flex flex-col gap-y-7 mt-12 md:mt-0">
-							<h3 class="text-white text-4xl md:text-3xl font-thin mb-2">
+							<h3 class="text-white text-4xl md:text-3xl font-thin mb-2 text-center md:text-start">
 								Log in
 							</h3>
 							<!-- alt methods of logging in -->

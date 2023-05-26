@@ -1,6 +1,6 @@
 <template>
 	<div class="w-full flex justify-center">
-		<Login />
+		
 	</div>
 </template>
 
