@@ -10,7 +10,7 @@
     @apply 
         bg-dark-black md:bg-light-black text-start p-3 md:px-5 md:py-4 text-white 
         duration-300 rounded-md border
-        border-onyx-black hover:bg-transparent text-center
+        border-onyx-black hover:bg-dark-black hover:bg-opacity-60
 }
 
 .layout-enter-active,

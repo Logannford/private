@@ -9,7 +9,7 @@
 	</div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 	//get a user object from supabase
 	const user = useSupabaseUser();
 
