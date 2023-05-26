@@ -84,7 +84,7 @@
 	</form>
 </template>
 
-<script setup>
+<script setup lang="ts">
 	const supabase = useSupabaseClient();
 	//setting up da things we needs
 	const email = ref("");
@@ -109,7 +109,7 @@
 
 	//data for the login error
 	let errorOccurred = ref(false);
-	let errorMessage = String;
+	let errorMessage: string = "";
 
 	watch([password, passwordAuth], ([newPassword, newPasswordAuth]) => {
 		passwordMatched.value = newPassword === newPasswordAuth;
@@ -122,16 +122,22 @@
 			//set loading to true
 			loading.value = true;
 			//check if the passwords match, if not then throw an error and exit early
-			const { data, error } = await supabase.auth.signUp({
+			const { user, error } = await supabase.auth.signUp({
 				email: email.value,
-				password: password.value
-			})
+				password: password.value,
+			});
+			if(error)
+				throw Error;
+			else
+				router.push("/");
 		}
-		catch(error){
+		catch(error: string | any){
+			errorOccurred.value = true;
+			errorMessage = error.error_description || errorMessage;
 		}
 		finally{
 			if(user)
-				alert("welcome back!");
+				alert("Welcome!");
 			loading.value = false;
 		}
 	}

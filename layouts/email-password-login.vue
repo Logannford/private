@@ -69,7 +69,7 @@
 	</form>
 </template>
 
-<script setup>
+<script setup lang="ts">
 	const supabase = useSupabaseClient();
 	//setting up da things we needs
 	const email = ref("");
@@ -90,7 +90,7 @@
 
 	//data for the login error
 	let errorOccurred = ref(false);
-	let errorMessage = String;
+	let errorMessage = "";
 
 	//method to handle the login
 	const handleLogin = async () => {
@@ -107,7 +107,7 @@
 				//if there is no error, the user is authed so redirect to homepage
 				router.push("/");
 		}
-		catch(error){
+		catch(error: string | any){
 			errorOccurred.value = true;
 			errorMessage = error.error_description || error.message;
 		}
