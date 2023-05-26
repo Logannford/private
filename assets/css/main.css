@@ -22,6 +22,10 @@
     filter: grayscale(1);
 }
 
+::selection{
+    @apply bg-blue-300
+}
+
 input[type=radio]{
     display:none;
 }

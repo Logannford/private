@@ -30,51 +30,53 @@
 							<!-- alt methods of logging in -->
 							<div class="order-last md:order-first">
 								<div class="flex flex-col gap-y-6 w-full">
-									<button 
-										@click="setLoginMethod('EmailPassword')"
-										class="button-dark"		
-										v-if="loginMethod != 'EmailPassword'"
-									>
-										<div class="flex justify-between items-center">
-											<span class="text-xl">
-												Email + Password
-											</span>
-										</div>
-									</button>
-									<button 
-										@click="setLoginMethod('MagicLink')"
-										class="button-dark flex items-center gap-x-3"
-										v-if="loginMethod != 'MagicLink'"
-									>
-										<div class="text-white w-6 h-6">
-											<IconsSend />
-										</div>
-										<div class="flex justify-between items-center">
-											<span class="text-xl">
-												Magic Link
-											</span>
-										</div>
-									</button>
-									<button 
-										@click="setLoginMethod('Google')"
-										class="button-dark flex items-center gap-x-3"
-										v-if="loginMethod != 'Google'"
-									>
-										<div class="text-white w-6 h-6">
-											<IconsGoogle />
-										</div>
-										<div class="flex justify-between items-center">
-											<span class="text-xl">
-												Google
-											</span>
-										</div>
-									</button>
+									<div class="flex flex-row md:flex-col gap-x-4 md:gap-y-4 justify-center">
+										<button 
+											@click="setLoginMethod('EmailPassword')"
+											class="button-dark"		
+											v-if="loginMethod != 'EmailPassword'"
+										>
+											<div class="flex justify-between items-center">
+												<span class="md:text-xl">
+													Email + Password
+												</span>
+											</div>
+										</button>
+										<button 
+											@click="setLoginMethod('MagicLink')"
+											class="button-dark flex items-center gap-x-3"
+											v-if="loginMethod != 'MagicLink'"
+										>
+											<div class="text-white w-6 h-6">
+												<IconsSend />
+											</div>
+											<div class="hidden md:flex justify-between items-center">
+												<span class="md:text-xl">
+													Magic Link
+												</span>
+											</div>
+										</button>
+										<button 
+											@click="setLoginMethod('Google')"
+											class="button-dark flex items-center gap-x-3"
+											v-if="loginMethod != 'Google'"
+										>
+											<div class="text-white w-6 h-6">
+												<IconsGoogle />
+											</div>
+											<div class="hidden md:flex justify-between items-center">
+												<span class="md:text-xl">
+													Google
+												</span>
+											</div>
+										</button>
+									</div>
 									<div class="relative flex flex-col justify-center w-full order-first md:order-last">
 										<CssTextLine text="Or" />
 									</div>
 								</div>
 							</div>
-							<div class="md:h-full flex flex-col">
+							<div class="md:h-full flex flex-col mt-10 md:mt-0">
 								<div v-if="loginMethod == 'MagicLink'">
 									<NuxtLayout :name="magicSignUp">
 										<NuxtPage />
