@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h2 class="w-full text-center leading-[0.1em] mt-2.5 mb-5 mx-0 border-b-white border-b border-solid">
-			<span class="bg-light-black px-4 py-2">
+			<span class="bg-dark-black md:bg-light-black px-4 py-2">
 				{{ text }}
 			</span>
 		</h2>

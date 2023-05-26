@@ -1,5 +1,5 @@
 <template>
-	<form @submit.prevent="handleLogin">
+	<form @submit.prevent="handleSignUp">
 		<div class="flex flex-col">
 			<div>
 				<label class="text-white font-light pb-2" for="emailAddress">Email</label>
@@ -29,9 +29,23 @@
 					}"
 				/>
 			</div>
+			<div class="mt-4">
+				<label class="text-white font-light pb-2" for="re-enter-password">Re-enter Password</label>
+				<input 
+					class="input-dark mt-2"
+					type="password"
+					v-model="passwordAuth"
+					placeholder="••••••••"
+					name="re-enter-password"
+					autocomplete="on"
+					:class="{
+						'outline outline-red-500': errorOccurred
+					}"
+				/>
+			</div>
 			<div class="flex items-center mt-4">
 				<button 
-					class="bg-transparent rounded-lg w-5 h-5 border border-gray-400"
+					class="bg-transparent rounded-full w-5 h-5 border border-gray-400"
 					@click="rememberMe = true"
 					:class="{
 						'bg-blue-600' : rememberMe	
@@ -45,10 +59,11 @@
 					class="
 						bg-gradient-to-r from-cyan-500 to-blue-500 
 						rounded-xl w-full text-white p-3 md:px-6 md:py-4 duration-300
-						hover:cursor-pointer hover:opacity-50
+						hover:cursor-pointer hover:opacity-50 disabled:opacity-50 disabled:cursor-not-allowed
 					"
 					ref="button"
 					type="submit"
+					:disabled="!passwordMatched"
 				>
 					<div 
 						v-if="loading"
@@ -58,7 +73,7 @@
 					</div>
 					<!-- the text is passed in as a prop when we use the button site wide -->
 					<span v-if="!loading">
-						Log in
+						Sign up
 					</span>
 				</button>
 			</div>
@@ -74,15 +89,19 @@
 	//setting up da things we needs
 	const email = ref("");
 	const password = ref("");
+	const passwordAuth = ref("");
 	const rememberMe = false;
 	//setting up the router
 	const router = useRouter();
+	let passwordMatched = ref(true);
 
 	//now lets get the data from the user
 	const { data: { user } } = await supabase.auth.getUser()
 
+	//on page load check if the user already exits, if they do then redirect to the homepage
 	onMounted(() => {
-		//console.log(user);
+		if(user)
+			router.push("/");
 	});
 
 	//loading state for loading spinner
@@ -92,29 +111,35 @@
 	let errorOccurred = ref(false);
 	let errorMessage: string = "";
 
-	//method to handle the login
-	const handleLogin = async () => {
-		try {
-			//start that loading spinner!
+	watch([password, passwordAuth], ([newPassword, newPasswordAuth]) => {
+		passwordMatched.value = newPassword === newPasswordAuth;
+	});
+
+
+	//async function to handle the sign up
+	const handleSignUp = async () => {
+		try{
+			//set loading to true
 			loading.value = true;
-			const { data, error } = await supabase.auth.signInWithPassword({
+			//check if the passwords match, if not then throw an error and exit early
+			const { data, error } = await supabase.auth.signUp({
 				email: email.value,
-				password: password.value
+				password: password.value,
 			});
 			if(error)
-				throw error;
+				throw Error;
 			else
-				//if there is no error, the user is authed so redirect to homepage
 				router.push("/");
 		}
 		catch(error: string | any){
 			errorOccurred.value = true;
-			errorMessage = error.error_description || error.message;
+			errorMessage = error.error_description || errorMessage;
 		}
 		finally{
 			if(user)
-				alert("welcome back!");
+				alert("Welcome!");
 			loading.value = false;
 		}
-	}	
+	}
+
 </script>

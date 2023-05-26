@@ -12,7 +12,7 @@
 	onMounted(() => {
 		watchEffect(() => {
 			if(!user.value)
-				navigateTo("/welcome");
+				navigateTo("/login");
 		})
 	})
 	definePageMeta({
