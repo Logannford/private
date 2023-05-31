@@ -103,17 +103,15 @@
 			});
 			if(error)
 				throw error;
-			else
-				//if there is no error, the user is authed so redirect to homepage
-				router.push("/");
 		}
 		catch(error: string | any){
 			errorOccurred.value = true;
 			errorMessage = error.error_description || error.message;
 		}
 		finally{
-			if(user)
-				alert("welcome back!");
+			console.log(user);
+			if(user && user.aud == "authenticated")
+				router.push("/");
 			loading.value = false;
 		}
 	}	
