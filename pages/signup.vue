@@ -83,12 +83,22 @@
 </template>
 
 <script setup lang="ts">
-	//getting the layouts
+	//layouts
 	const magicSignUp = "magic-login";
 	const EmailPassword = "email-password-signup";
 	const signUpMethod = ref('EmailPassword');
 
+	//methods
 	function setLoginMethod(method: string) {
 		signUpMethod.value = method;
 	}
+
+	//composables
+	//this is rendered on the server so is NOT reactive, use 'useHead' for that.
+	useSeoMeta({
+		title: "Sign up",
+		ogTitle: "Sign up",
+		description: "Sign up to progress!",
+		ogDescription: "Sign up to progress!"
+	})
 </script>
