@@ -22,18 +22,18 @@
   },
   "dependencies": {
     "@nuxtjs/google-fonts": "^3.0.0",
+    "@pinia/nuxt": "^0.4.11",
     "@supabase/supabase-js": "^2.21.0",
     "@types/three": "^0.152.0",
     "@vue/reactivity": "^3.3.2",
     "firebase": "^9.21.0",
     "nuxt-swiper": "^1.1.0",
+    "pinia": "^2.1.3",
     "tailwind-container-break-out": "^2.0.6",
     "tailwindcss-filters": "^3.0.0",
     "three": "^0.152.2",
     "three-orbitcontrols": "^2.110.3",
+    "vue-demi": "latest",
     "vue-router": "^4.1.6"
-  },
-  "overrides": {
-    "vue": "latest"
   }
 }

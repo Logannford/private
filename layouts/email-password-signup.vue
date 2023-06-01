@@ -129,7 +129,7 @@
 			if(error)
 				throw Error;
 			else
-				router.push("/");
+				router.push("/onboarding");
 		}
 		catch(error: string | any){
 			errorOccurred.value = true;
