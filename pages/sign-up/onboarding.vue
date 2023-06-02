@@ -1,9 +1,12 @@
 <template>
-	<div class="text-white">
-		<button @click="">
-			click me
+	<div class="text-white flex gap-x-4">
+		<button @click="store.goToPreviousSlide()">
+			previous
 		</button>
-		{{ store.currentSlideArray }}
+		<button @click="store.goToNextSlide()">
+			next
+		</button>
+		{{ store.currentSlide }}
 	</div>
 </template>
 
@@ -12,26 +15,21 @@
 	import { onMounted, watch } from 'vue';
 	import { onboardingProgress } from '~/store/index';
 
-	//store
+	//creating a store instance
 	const store = onboardingProgress();
-
-	const props = defineProps({
-		currentSlide: String
-	})
-
+	
 	//composables
 	//getting the active slide
 	const activeSlide = currentSlide();
 	
 	//lifecycle hooks
 	onMounted(() => {
+		//onMounted set the current slide to the first one
 		store.onPageLoad();
-		console.log(store.currentSlide);
 	})
-	//watchers
-	watch(() => "", () => {
-		
-	})
+
+	//computed
+
 
 	//stuffs for SEO
 	useSeoMeta({
