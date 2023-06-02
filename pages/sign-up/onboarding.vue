@@ -1,12 +1,25 @@
 <template>
 	<div class="text-white flex gap-x-4">
-		<button @click="store.goToPreviousSlide()">
+		<button v-if="store.slideIndex != 0" @click="store.goToPreviousSlide()">
 			previous
 		</button>
-		<button @click="store.goToNextSlide()">
+		<button v-if="store.slideIndex != store.currentSlideArray.length - 1" @click="store.goToNextSlide()">
 			next
 		</button>
-		{{ store.currentSlide }}
+
+		<!-- the different layouts imported -->
+		<NuxtLayout v-if="store.currentSlide == 'uid-one'" :name="screenOne">
+			<NuxtPage />
+		</NuxtLayout>
+		<NuxtLayout v-if="store.currentSlide == 'uid-two'" :name="screenTwo">
+			<NuxtPage />
+		</NuxtLayout>
+		<NuxtLayout v-if="store.currentSlide == 'uid-three'" :name="screenThree">
+			<NuxtPage />
+		</NuxtLayout>
+		<NuxtLayout v-if="store.currentSlide == 'uid-four'" :name="screenFour">
+			<NuxtPage />
+		</NuxtLayout>
 	</div>
 </template>
 
@@ -14,6 +27,12 @@
 	//imports 
 	import { onMounted, watch } from 'vue';
 	import { onboardingProgress } from '~/store/index';
+
+	//getting the layouts
+	const screenOne = "screen-one"
+	const screenTwo = "screen-two"
+	const screenThree = "screen-three"
+	const screenFour = "screen-four"
 
 	//creating a store instance
 	const store = onboardingProgress();

@@ -1,9 +1,9 @@
 <template>
 	<div>
-		
+		Screen One
 	</div>
 </template>
 
-<script>
+<script setup lang="ts">
 
 </script>
