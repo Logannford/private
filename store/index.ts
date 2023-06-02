@@ -1,19 +1,33 @@
 import { defineStore } from "pinia";
 
-export const onboardingProgress = defineStore("onboarding-progress", () => {
-
-	//data properties
-	const number = ref<number>(2);
-
-	//getters
-	const increment = computed({
-		get: () => number.value,
-		set: (newValue: number) => {
-			number.value = newValue
-		}
-	})
+export const onboardingProgress = defineStore("onboarding-progress", {
+	//state
+	state: () => ({
+		currentSlideArray: [
+			{
+				"uid"		: "",
+				"screen"	: "screen-one"
+			}, 
+			{
+				"uid"		: "",
+				"screen"	: "screen-two"
+			},
+			{
+				"uid"		: "",
+				"screen"	: "screen-three"
+			},
+			{
+				"uid"		: "",
+				"screen"	: "screen-four"
+			}
+		] as Array<Object>,
+		currentSlide: <any>"",
+	}),
 
 	//actions
-
-	return { number, increment }
+	actions: {
+		onPageLoad(){
+			this.currentSlide = this.currentSlideArray[0] ?? null
+		}
+	}
 })

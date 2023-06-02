@@ -1,8 +1,9 @@
 <template>
-	<div>
-		<button @click="() => store.increment++">
+	<div class="text-white">
+		<button @click="">
 			click me
 		</button>
+		{{ store.currentSlideArray }}
 	</div>
 </template>
 
@@ -10,11 +11,13 @@
 	//imports 
 	import { onMounted, watch } from 'vue';
 	import { onboardingProgress } from '~/store/index';
-	import { storeToRefs } from 'pinia'
 
 	//store
 	const store = onboardingProgress();
-	const { number } = storeToRefs(store);
+
+	const props = defineProps({
+		currentSlide: String
+	})
 
 	//composables
 	//getting the active slide
@@ -22,10 +25,17 @@
 	
 	//lifecycle hooks
 	onMounted(() => {
-		console.log(number.value);
+		store.onPageLoad();
+		console.log(store.currentSlide);
 	})
 	//watchers
-	watch(number, (newNumber) => {
-		console.log(newNumber);
+	watch(() => "", () => {
+		
+	})
+
+	//stuffs for SEO
+	useSeoMeta({
+		title: "On boarding",
+		ogTitle: "On boarding"
 	})
 </script>

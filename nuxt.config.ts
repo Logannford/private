@@ -27,6 +27,12 @@ export default defineNuxtConfig({
 	swiper: {
 
 	},
+	pinia: {
+		autoImports: [
+			'defineStore',
+			['defineStore', 'definePiniaStore'] 
+		]
+	},
 	runtimeConfig:{
 		supabase_db_url: "",
 		supabase_db_anon_key: ""
