@@ -6,18 +6,8 @@
 		<button v-if="store.slideIndex != store.currentSlideArray.length - 1" @click="store.goToNextSlide()">
 			next
 		</button>
-
-		<!-- the different layouts imported -->
-		<NuxtLayout v-if="store.currentSlide == 'uid-one'" :name="screenOne">
-			<NuxtPage />
-		</NuxtLayout>
-		<NuxtLayout v-if="store.currentSlide == 'uid-two'" :name="screenTwo">
-			<NuxtPage />
-		</NuxtLayout>
-		<NuxtLayout v-if="store.currentSlide == 'uid-three'" :name="screenThree">
-			<NuxtPage />
-		</NuxtLayout>
-		<NuxtLayout v-if="store.currentSlide == 'uid-four'" :name="screenFour">
+		<!-- Dynamic layout component -->
+		<NuxtLayout :name="currentLayout()">
 			<NuxtPage />
 		</NuxtLayout>
 	</div>
@@ -37,18 +27,23 @@
 	//creating a store instance
 	const store = onboardingProgress();
 	
-	//composables
-	//getting the active slide
-	const activeSlide = currentSlide();
-	
 	//lifecycle hooks
 	onMounted(() => {
 		//onMounted set the current slide to the first one
 		store.onPageLoad();
 	})
 
-	//computed
+	//layout methods
+	const layoutMapping: { [key: string]: string } = {
+		"uid-one"		: screenOne,
+		"uid-two"		: screenTwo,
+		"uid-three"		: screenThree,
+		"uid-four"		: screenFour
+	};
 
+	const currentLayout = () => {
+		return layoutMapping[store.currentSlide];
+	};
 
 	//stuffs for SEO
 	useSeoMeta({
