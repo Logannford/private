@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full h-screen flex flex-col justify-center items-center">
+	<div v-if="!user" class="w-full h-screen flex flex-col justify-center items-center">
 		<div class="w-10 h-10 text-white">
 			<Spinner />
 		</div>
