@@ -55,11 +55,17 @@
 
 	//data we are getting from this form
 	const displayName = ref("");
-	const store = storeToRefs(userDataStore())
+	const store = userDataStore()
 
 	//lifecycle hooks
 	onMounted(() => {
-		console.log(store);
+		// Set the display name when the component is mounted
+		store.userDisplayName = displayName.value;
 	})
+
+	// Watch for changes in the displayName and update the store in real-time
+	watch(displayName, (newValue) => {
+		store.userDisplayName = newValue;
+	});
 
 </script>

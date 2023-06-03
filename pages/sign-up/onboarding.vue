@@ -33,7 +33,7 @@
 					LOGO HERE
 				</div>
 				<div>
-					
+					{{ userData.userDisplayName }}
 				</div>
 			</div>
 		</div>
@@ -43,6 +43,7 @@
 <script setup lang="ts">
 	//imports 
 	import { onboardingProgress } from '~/store/index';
+	import { userDataStore } from "@/store/userData";
 
 	//getting the layouts
 	const screenOne = "screen-one"
@@ -52,6 +53,7 @@
 
 	//creating a store instance
 	const store = onboardingProgress();
+	const userData = userDataStore();
 	
 	//lifecycle hooks
 	onMounted(() => {

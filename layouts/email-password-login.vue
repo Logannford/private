@@ -70,6 +70,7 @@
 </template>
 
 <script setup lang="ts">
+	//supabaseeee
 	const supabase = useSupabaseClient();
 	//setting up da things we needs
 	const email = ref("");

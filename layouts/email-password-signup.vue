@@ -85,6 +85,11 @@
 </template>
 
 <script setup lang="ts">
+	//storing the users data
+	import { userDataStore } from "@/store/userData";
+	const userData = userDataStore();
+	
+	//supabaseeeee
 	const supabase = useSupabaseClient();
 	//setting up da things we needs
 	const email = ref("");
@@ -136,8 +141,10 @@
 			errorMessage = error.error_description || errorMessage;
 		}
 		finally{
-			if(user)
+			if(user){
 				alert("Welcome!");
+				userData.userEmailAddress = email.value;
+			}
 			loading.value = false;
 		}
 	}
