@@ -1,21 +1,47 @@
 <template>
-	<div class="text-white flex gap-x-4">
-		<button v-if="store.slideIndex != 0" @click="store.goToPreviousSlide()">
-			previous
-		</button>
-		<button v-if="store.slideIndex != store.currentSlideArray.length - 1" @click="store.goToNextSlide()">
-			next
-		</button>
-		<!-- Dynamic layout component -->
-		<NuxtLayout :name="currentLayout()">
-			<NuxtPage />
-		</NuxtLayout>
+	<div class="flex flex-col md:flex-row text-white h-screen">
+		<!-- left side -->
+		<div class="w-full md:w-7/12 flex items-center justify-center container">
+			<div class="text-white flex flex-col gap-x-4 w-full container">
+				<div class="min-w-xl px-10 py-4">
+					<!-- Dynamic layout component -->
+					<NuxtLayout :name="currentLayout()">
+						<NuxtPage />
+					</NuxtLayout>
+					<div class="flex justify-between mt-3">
+						<button 
+							:disabled="store.slideIndex == 0" 
+							@click="store.goToPreviousSlide()"
+							class="disabled:opacity-50"
+						>
+							previous
+						</button>
+						<button 
+							v-if="store.slideIndex != store.currentSlideArray.length - 1" 
+							@click="store.goToNextSlide()"
+						>
+							next
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- right side -->
+		<div class="w-full md:w-5/12 md:bg-light-black md:border-l md:border-gray-600">
+			<div class="container py-16 flex flex-col gap-y-20">
+				<div class="text-lg">
+					LOGO HERE
+				</div>
+				<div>
+					
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
 	//imports 
-	import { onMounted, watch } from 'vue';
 	import { onboardingProgress } from '~/store/index';
 
 	//getting the layouts
@@ -42,7 +68,7 @@
 	};
 
 	const currentLayout = () => {
-		return layoutMapping[store.currentSlide];
+		return layoutMapping[store.currentSlide] as string;
 	};
 
 	//stuffs for SEO
