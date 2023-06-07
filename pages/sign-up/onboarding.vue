@@ -66,6 +66,7 @@
 	onMounted(() => {
 		//onMounted set the current slide to the first one
 		store.onPageLoad();
+		console.log(store.currentSlide);
 	})
 
 	//layout methods
@@ -82,7 +83,7 @@
 
 	//stuffs for SEO
 	useSeoMeta({
-		title: "On boarding",
-		ogTitle: "On boarding"
+		title: "On boarding • SMYW",
+		ogTitle: "On boarding • SMYW"
 	})
 </script>

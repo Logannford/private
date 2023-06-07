@@ -40,7 +40,7 @@
 													hover:translate-x-2 hover:-translate-y-2 hover:cursor-pointer flex items-center
 													gap-x-3
 												"		
-												v-if="loginMethod != 'EmailPassword'"
+												v-if="loginMethod.currentLoginMethod != 'EmailPassword'"
 											>
 												<div class="flex justify-between items-center">
 													<span class="md:text-xl">
@@ -51,14 +51,14 @@
 										</div>
 										<div class="bg-white">
 											<button 
-												@click="setLoginMethod('MagicLink')"
+												@click="setLoginMethod('magicSignUp')"
 												class="
 													text-white bg-black border-4 border-white
 													w-full p-3 md:px-6 md:py-4 duration-300 translate-x-1 -translate-y-1
 													hover:translate-x-2 hover:-translate-y-2 hover:cursor-pointer flex items-center
 													gap-x-3
 												"
-												v-if="loginMethod != 'MagicLink'"
+												v-if="loginMethod.currentLoginMethod != 'magicSignUp'"
 											>
 												<div class="text-white w-6 h-6">
 													<IconsSend />
@@ -79,7 +79,7 @@
 													hover:translate-x-2 hover:-translate-y-2 hover:cursor-pointer flex items-center
 													gap-x-3
 												"
-												v-if="loginMethod != 'Google'"
+												v-if="loginMethod.currentLoginMethod != 'Google'"
 											>
 												<div class="text-white w-6 h-6">
 													<IconsGoogle />
@@ -98,18 +98,12 @@
 								</div>
 							</div>
 							<div class="md:h-full flex flex-col mt-10 md:mt-0">
-								<div v-if="loginMethod == 'MagicLink'">
-									<NuxtLayout :name="magicSignUp">
-										<NuxtPage />
-									</NuxtLayout>
-								</div>
-								<div v-show="loginMethod == 'EmailPassword'">
-									<NuxtLayout :name="EmailPassword">
-										<NuxtPage />
-									</NuxtLayout>
-								</div>
+								<!-- Dynamic layout component -->
+								<NuxtLayout :name="currentLoginMethod()">
+									<NuxtPage />
+								</NuxtLayout>
 							</div>
-							<div class="block md:hidden flex justify-center order-last">
+							<div class="md:hidden flex justify-center order-last">
 								<NuxtLink to="/signup">	
 									<span class="hover:cursor-pointer hover:text-blue-500 duration-300 hover:opacity-70">
 										Don't have an account?
@@ -128,9 +122,29 @@
 	//getting the layouts
 	const magicSignUp = "magic-login";
 	const EmailPassword = "email-password-login";
-	const loginMethod = ref('EmailPassword');
+	const loginMethod = reactive({ currentLoginMethod: "EmailPassword"});
+	
 
 	function setLoginMethod(method: string) {
-		loginMethod.value = method;
+		loginMethod.currentLoginMethod = method;
 	}
+
+	const layoutMapping: { [key: string]: string } = {
+		"magicSignUp"				: magicSignUp,
+		"EmailPassword"				: EmailPassword
+	}
+
+	const currentLoginMethod = () => {
+		return layoutMapping[loginMethod.currentLoginMethod] as string
+	}
+
+	watch((loginMethod), (val) => {
+		console.log(loginMethod.currentLoginMethod)
+	})
+
+	//stuffs for SEO
+	useSeoMeta({
+		title: "Login • SMYW",
+		ogTitle: "Login • SMYW"
+	})
 </script>
