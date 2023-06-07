@@ -116,13 +116,14 @@
 			});
 			if(error)
 				throw error;
+			else
+				navigateTo("/");
 		}
 		catch(error: string | any){
 			errorOccurred.value = true;
 			errorMessage = error.error_description || error.message;
 		}
 		finally{
-			console.log(user);
 			if(user && user.aud == "authenticated")
 				router.push("/");
 			loading.value = false;
