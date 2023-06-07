@@ -30,6 +30,10 @@ export default defineNuxtConfig({
 				{
 					rel: "stylesheet",
 					href: "https://fonts.googleapis.com/css2?family=Barlow"
+				},
+				{
+					rel: "stylesheet",
+					href: "https://fonts.googleapis.com/css2?family=Titillium+Web"
 				}
 			]
 		}

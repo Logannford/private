@@ -5,9 +5,11 @@
 			<div class="text-white flex flex-col gap-x-4 w-full container">
 				<div class="min-w-xl px-10 py-4">
 					<!-- Dynamic layout component -->
-					<NuxtLayout :name="currentLayout()">
-						<NuxtPage />
-					</NuxtLayout>
+					<KeepAlive>
+						<NuxtLayout :name="currentLayout()">
+							<NuxtPage />
+						</NuxtLayout>
+					</KeepAlive>
 					<div class="flex justify-between mt-3">
 						<button 
 							:disabled="store.slideIndex == 0" 
@@ -32,8 +34,13 @@
 				<div class="text-lg">
 					LOGO HERE
 				</div>
-				<div>
-					{{ userData.userDisplayName }}
+				<div class="flex gap-x-10 items-center">
+					<div class="w-20 h-20 rounded-full">
+						<ImagesBlankProfile />
+					</div>
+					<div>
+						{{ userData.userDisplayName }}
+					</div>
 				</div>
 			</div>
 		</div>

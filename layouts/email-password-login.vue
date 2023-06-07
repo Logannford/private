@@ -1,10 +1,9 @@
 <template>
 	<form @submit.prevent="handleLogin">
-		<div class="flex flex-col">
-			<div>
-				<label class="text-white font-light pb-2" for="emailAddress">Email</label>
+		<div class="flex flex-col gap-y-6">
+			<div class="relative">
 				<input 
-					class="input-dark mt-2"
+					class="input-dark !bg-transparent peer placeholder-transparent"
 					type="email"
 					v-model="email"
 					placeholder="hello@example.com"
@@ -14,20 +13,31 @@
 						'outline outline-red-500': errorOccurred
 					}"
 				/>
+				<label 
+					class="floating-label" 
+					for="emailAddress"
+				>
+					Email
+				</label>
 			</div>
-			<div class="mt-4">
-				<label class="text-white font-light pb-2" for="password">Password</label>
+			<div class="relative">
 				<input 
-					class="input-dark mt-2"
+					class="input-dark !bg-transparent peer placeholder-transparent"
 					type="password"
 					v-model="password"
-					placeholder="••••••••"
+					placeholder="password"
 					name="password"
 					autocomplete="on"
 					:class="{
 						'outline outline-red-500': errorOccurred
 					}"
 				/>
+				<label 
+					class="floating-label" 
+					for="password"
+				>
+					Password
+				</label>
 			</div>
 			<div class="flex items-center mt-4">
 				<button 
@@ -40,12 +50,12 @@
 				</button>
 				<label class="ml-2" for="rememberMe">Remember me</label>
 			</div>
-			<div class="mt-8 w-full">
+			<div class="mt-6 w-full">
 				<button
 					class="
-						bg-gradient-to-r from-cyan-500 to-blue-500 
-						rounded-xl w-full text-white p-3 md:px-6 md:py-4 duration-300
-						hover:cursor-pointer hover:opacity-50
+						text-white bg-black border-4 border-white
+						w-full p-3 md:px-6 md:py-4 duration-300 shadow-backdrop
+						hover:shadow-backdrop-lg hover:cursor-pointer
 					"
 					ref="button"
 					type="submit"
@@ -57,7 +67,7 @@
 						<Spinner />
 					</div>
 					<!-- the text is passed in as a prop when we use the button site wide -->
-					<span v-if="!loading">
+					<span v-if="!loading" class="font-semibold">
 						Log in
 					</span>
 				</button>

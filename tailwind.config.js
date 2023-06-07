@@ -31,6 +31,13 @@ module.exports = {
         "dark-black": "#0A0A0A",
         "light-black": "#1c1c1c",
         "onyx-black": "#3E3E3E"
+      },
+      boxShadow: {
+        "backdrop": "-6px 6px #DADADA, -6px 6px #DADADA, -1px 1px #DADADA",
+        "backdrop-lg": "-16px 16px #DADADA, -6px 16px #DADADA, -1px 1px #DADADA"
+      },
+      translate:{
+        "backdrop": "-16px 16px"
       }
     },
   },

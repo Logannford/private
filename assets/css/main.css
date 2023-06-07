@@ -34,10 +34,6 @@
     filter: grayscale(1);
 }
 
-::selection{
-    @apply bg-purple-600
-}
-
 input[type=radio]{
     display:none;
 }
@@ -55,6 +51,6 @@ body{
     font-family: "Roboto-condensed", sans-serif
 }
 
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6, span{
     font-family: "Barlow", sans-serif;
 }

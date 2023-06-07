@@ -22,7 +22,7 @@
 							<ThreeJs/>
 						</ClientOnly>
 					</div>
-					<div class="w-full md:w-5/12 h-screen bg-dark-black md:bg-light-black flex md:items-center md:justify-end md:border-l md:border-gray-600">
+					<div class="w-full md:w-5/12 h-screen bg-dark-black md:bg-black flex md:items-center md:justify-end md:border-l md:border-gray-600">
 						<div class="container w-full flex flex-col gap-y-7 mt-12 md:mt-0">
 							<h3 class="text-white text-4xl md:text-3xl font-thin mb-2 text-center md:text-start">
 								Log in
@@ -44,7 +44,11 @@
 										</button>
 										<button 
 											@click="setLoginMethod('MagicLink')"
-											class="button-dark flex items-center gap-x-3"
+											class="
+												text-white bg-black border-4 border-white
+												w-full p-3 md:px-6 md:py-4 duration-300 hover:border-transparent
+												hover:cursor-pointer flex items-center gap-x-3
+											"
 											v-if="loginMethod != 'MagicLink'"
 										>
 											<div class="text-white w-6 h-6">
@@ -58,7 +62,11 @@
 										</button>
 										<button 
 											@click="setLoginMethod('Google')"
-											class="button-dark flex items-center gap-x-3"
+											class="
+												text-white bg-black border-4 border-white
+												w-full p-3 md:px-6 md:py-4 duration-300 hover:border-transparent
+												hover:cursor-pointer flex items-center gap-x-3
+											"
 											v-if="loginMethod != 'Google'"
 										>
 											<div class="text-white w-6 h-6">
