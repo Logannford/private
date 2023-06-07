@@ -1,10 +1,9 @@
 <template>
 	<form @submit.prevent="handleLogin">
-		<div class="flex flex-col">
-			<div>
-				<label class="text-white font-light pb-2" for="emailAddress">Email</label>
+		<div class="flex flex-col gap-y-6">
+			<div class="relative">
 				<input 
-					class="input-dark mt-2"
+					class="input-dark !bg-transparent peer placeholder-transparent"
 					type="email"
 					v-model="email"
 					placeholder="hello@example.com"
@@ -14,24 +13,35 @@
 						'outline outline-red-500': errorOccurred
 					}"
 				/>
+				<label 
+					class="floating-label" 
+					for="emailAddress"
+				>
+					Email
+				</label>
 			</div>
-			<div class="mt-4">
-				<label class="text-white font-light pb-2" for="password">Password</label>
+			<div class="relative">
 				<input 
-					class="input-dark mt-2"
+					class="input-dark !bg-transparent peer placeholder-transparent"
 					type="password"
 					v-model="password"
-					placeholder="••••••••"
+					placeholder="password"
 					name="password"
 					autocomplete="on"
 					:class="{
 						'outline outline-red-500': errorOccurred
 					}"
 				/>
+				<label 
+					class="floating-label" 
+					for="password"
+				>
+					Password
+				</label>
 			</div>
 			<div class="flex items-center mt-4">
 				<button 
-					class="bg-transparent rounded-lg w-5 h-5 border border-gray-400"
+					class="bg-transparent rounded-lg w-5 h-5 border border-white"
 					@click="rememberMe = true"
 					:class="{
 						'bg-blue-600' : rememberMe	
@@ -40,27 +50,29 @@
 				</button>
 				<label class="ml-2" for="rememberMe">Remember me</label>
 			</div>
-			<div class="mt-8 w-full">
-				<button
-					class="
-						bg-gradient-to-r from-cyan-500 to-blue-500 
-						rounded-xl w-full text-white p-3 md:px-6 md:py-4 duration-300
-						hover:cursor-pointer hover:opacity-50
-					"
-					ref="button"
-					type="submit"
-				>
-					<div 
-						v-if="loading"
-						class="text-white w-5 h-5 w-full flex justify-center"
+			<div class="mt-6 w-full">
+				<div class="bg-white">
+					<button
+						class="
+							text-white bg-black border-4 border-white
+							w-full p-3 md:px-6 md:py-4 duration-300 translate-x-1 -translate-y-1
+							hover:translate-x-2 hover:-translate-y-2 hover:cursor-pointer
+						"
+						ref="button"
+						type="submit"
 					>
-						<Spinner />
-					</div>
-					<!-- the text is passed in as a prop when we use the button site wide -->
-					<span v-if="!loading">
-						Log in
-					</span>
-				</button>
+						<div 
+							v-if="loading"
+							class="text-white w-5 h-5 w-full flex justify-center"
+						>
+							<Spinner />
+						</div>
+						<!-- the text is passed in as a prop when we use the button site wide -->
+						<span v-if="!loading" class="font-semibold">
+							Log in
+						</span>
+					</button>
+				</div>
 			</div>
 			<div v-if="errorOccurred" class="flex justify-center w-full mt-2 text-red-500">
 				{{ errorMessage ? errorMessage : "An error occurred" }}
@@ -70,6 +82,7 @@
 </template>
 
 <script setup lang="ts">
+	//supabaseeee
 	const supabase = useSupabaseClient();
 	//setting up da things we needs
 	const email = ref("");
@@ -104,16 +117,15 @@
 			if(error)
 				throw error;
 			else
-				//if there is no error, the user is authed so redirect to homepage
-				router.push("/");
+				navigateTo("/");
 		}
 		catch(error: string | any){
 			errorOccurred.value = true;
 			errorMessage = error.error_description || error.message;
 		}
 		finally{
-			if(user)
-				alert("welcome back!");
+			if(user && user.aud == "authenticated")
+				router.push("/");
 			loading.value = false;
 		}
 	}	

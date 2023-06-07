@@ -1,5 +1,5 @@
 <template>
-	<div class="w-full h-screen flex flex-col justify-center items-center">
+	<div v-if="!user" class="w-full h-screen flex flex-col justify-center items-center">
 		<div class="w-10 h-10 text-white">
 			<Spinner />
 		</div>
@@ -10,13 +10,17 @@
 </template>
 
 <script setup lang="ts">
+	const supabase = useSupabaseClient();
+
 	//get a user object from supabase
-	const user = useSupabaseUser();
+	//now lets get the data from the user
+	const { data: { user } } = await supabase.auth.getUser()
 
 	//on the page mounted, watch the user value
 	onMounted(() => {
+		console.log(user);
 		watchEffect(() => {
-			if(!user.value)
+			if(!user || user.aud != "authenticated")
 				navigateTo("/login");
 		})
 	})

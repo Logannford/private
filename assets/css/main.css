@@ -3,14 +3,26 @@
 @tailwind utilities;
 
 .input-dark{
-	@apply bg-dark-black md:bg-light-black w-full rounded-md p-2 md:px-3 md:py-3 border border-onyx-black
+	@apply bg-dark-black 
+        w-full p-2 md:p-3 md:pl-0 border-b border-onyx-black
+        focus:outline-0 
 }
 
 .button-dark{
     @apply 
         bg-dark-black md:bg-light-black text-start p-3 md:px-5 md:py-4 text-white 
         duration-300 rounded-md border
-        border-onyx-black hover:bg-dark-black hover:bg-opacity-60
+        border-onyx-black hover:bg-transparent text-center
+}
+
+.floating-label{
+    @apply absolute left-0 -top-4 text-gray-600
+        pr-2 py-1 rounded-lg
+        peer-placeholder-shown:text-sm 
+        peer-placeholder-shown:text-white 
+        peer-placeholder-shown:top-2 
+        transition-all select-none pointer-events-none
+        peer-focus:-top-4 peer-focus:text-white peer-focus:text-xs 
 }
 
 .layout-enter-active,
@@ -20,10 +32,6 @@
 .layout-enter-from,
 .layout-leave-to {
     filter: grayscale(1);
-}
-
-::selection{
-    @apply bg-blue-300
 }
 
 input[type=radio]{
@@ -40,6 +48,9 @@ input[type=radio]:checked + label{
 }
 	
 body{
-    /*font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family: "Roboto-condensed", sans-serif
+}
+
+h1, h2, h3, h4, h5, h6, span{
+    font-family: "Eczar", sans-serif;
 }

@@ -29,7 +29,7 @@
 							<ThreeJs/>
 						</ClientOnly>
 					</div>
-					<div class="container w-5/12 h-screen bg-light-black flex items-center justify-end border-l border-gray-600">
+					<div class="container w-5/12 h-screen bg-black flex items-center justify-end border-l border-gray-600">
 						<div class="w-full flex flex-col gap-y-7">
 							<h3 class="text-white text-3xl font-thin mb-2">
 								Sign Up
@@ -37,31 +37,45 @@
 							<!-- alt methods of logging in -->
 							<div>
 								<div class="flex flex-col gap-y-6 w-full">
-									<button 
-										@click="setLoginMethod('EmailPassword')"
-										class="button-dark"		
-										v-if="signUpMethod != 'EmailPassword'"
-									>
-										<div class="flex justify-between items-center">
-											<span class="text-xl">
-												Email + Password
-											</span>
-										</div>
-									</button>
-									<button 
-										@click="setLoginMethod('Google')"
-										class="button-dark flex items-center gap-x-3"
-										v-if="signUpMethod != 'Google'"
-									>
-										<div class="text-white w-6 h-6">
-											<IconsGoogle />
-										</div>
-										<div class="flex justify-between items-center">
-											<span class="text-xl">
-												Google
-											</span>
-										</div>
-									</button>
+									<div class="bg-white">
+										<button 
+											@click="setLoginMethod('EmailPassword')"
+											class="
+												text-white bg-black border-4 border-white
+												w-full p-3 md:px-6 md:py-4 duration-300 translate-x-1 -translate-y-1
+												hover:translate-x-2 hover:-translate-y-2 hover:cursor-pointer flex items-center
+												gap-x-3
+											"		
+											v-if="signUpMethod != 'EmailPassword'"
+										>
+											<div class="flex justify-between items-center">
+												<span class="text-xl">
+													Email + Password
+												</span>
+											</div>
+										</button>
+									</div>
+									<div class="bg-white">
+										<button 
+											@click="setLoginMethod('Google')"
+											class="
+												text-white bg-black border-4 border-white
+												w-full p-3 md:px-6 md:py-4 duration-300 translate-x-1 -translate-y-1
+												hover:translate-x-2 hover:-translate-y-2 hover:cursor-pointer flex items-center
+												gap-x-3
+											"
+											v-if="signUpMethod != 'Google'"
+										>
+											<div class="text-white w-6 h-6">
+												<IconsGoogle />
+											</div>
+											<div class="flex justify-between items-center">
+												<span class="text-xl">
+													Google
+												</span>
+											</div>
+										</button>
+									</div>
 									<div class="relative flex flex-col justify-center w-full">
 										<CssTextLine text="Or" />
 									</div>
@@ -83,12 +97,21 @@
 </template>
 
 <script setup lang="ts">
-	//getting the layouts
-	const magicSignUp = "magic-login";
+	//layouts
 	const EmailPassword = "email-password-signup";
 	const signUpMethod = ref('EmailPassword');
 
+	//methods
 	function setLoginMethod(method: string) {
 		signUpMethod.value = method;
 	}
+
+	//composables
+	//this is rendered on the server so is NOT reactive, use 'useHead' for that.
+	useSeoMeta({
+		title: "Sign up • SMYW",
+		ogTitle: "Sign up • SMYW",
+		description: "Sign up to progress!",
+		ogDescription: "Sign up to progress!"
+	})
 </script>

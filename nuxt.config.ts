@@ -4,7 +4,8 @@ export default defineNuxtConfig({
 		'@nuxtjs/supabase',
 		'@nuxtjs/google-fonts',
 		'nuxt-swiper',
-		'@vueuse/nuxt'
+		'@vueuse/nuxt',
+		'@pinia/nuxt'
 	],
 	app:{
 		layoutTransition: { 
@@ -20,11 +21,31 @@ export default defineNuxtConfig({
 			],
 			bodyAttrs: {
 				class: "bg-dark-black w-full h-screen overflow-hidden"
-			}
+			},
+			link: [
+				{
+					rel: "stylesheet",
+					href: "https://fonts.googleapis.com/css2?family=Roboto+Condensed"
+				},
+				{
+					rel: "stylesheet",
+					href: "https://fonts.googleapis.com/css2?family=Barlow"
+				},
+				{
+					rel: "stylesheet",
+					href: "https://fonts.googleapis.com/css2?family=Eczar"
+				}
+			]
 		}
 	},
 	swiper: {
 
+	},
+	pinia: {
+		autoImports: [
+			'defineStore',
+			['defineStore', 'definePiniaStore'] 
+		]
 	},
 	runtimeConfig:{
 		supabase_db_url: "",
