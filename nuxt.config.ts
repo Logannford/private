@@ -33,7 +33,7 @@ export default defineNuxtConfig({
 				},
 				{
 					rel: "stylesheet",
-					href: "https://fonts.googleapis.com/css2?family=Titillium+Web"
+					href: "https://fonts.googleapis.com/css2?family=Eczar"
 				}
 			]
 		}

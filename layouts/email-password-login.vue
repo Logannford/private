@@ -41,7 +41,7 @@
 			</div>
 			<div class="flex items-center mt-4">
 				<button 
-					class="bg-transparent rounded-lg w-5 h-5 border border-gray-400"
+					class="bg-transparent rounded-lg w-5 h-5 border border-white"
 					@click="rememberMe = true"
 					:class="{
 						'bg-blue-600' : rememberMe	
