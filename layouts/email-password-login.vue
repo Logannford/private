@@ -51,26 +51,28 @@
 				<label class="ml-2" for="rememberMe">Remember me</label>
 			</div>
 			<div class="mt-6 w-full">
-				<button
-					class="
-						text-white bg-black border-4 border-white
-						w-full p-3 md:px-6 md:py-4 duration-300 shadow-backdrop
-						hover:shadow-backdrop-lg hover:cursor-pointer
-					"
-					ref="button"
-					type="submit"
-				>
-					<div 
-						v-if="loading"
-						class="text-white w-5 h-5 w-full flex justify-center"
+				<div class="bg-white">
+					<button
+						class="
+							text-white bg-black border-4 border-white
+							w-full p-3 md:px-6 md:py-4 duration-300 translate-x-1 -translate-y-1
+							hover:translate-x-2 hover:-translate-y-2 hover:cursor-pointer
+						"
+						ref="button"
+						type="submit"
 					>
-						<Spinner />
-					</div>
-					<!-- the text is passed in as a prop when we use the button site wide -->
-					<span v-if="!loading" class="font-semibold">
-						Log in
-					</span>
-				</button>
+						<div 
+							v-if="loading"
+							class="text-white w-5 h-5 w-full flex justify-center"
+						>
+							<Spinner />
+						</div>
+						<!-- the text is passed in as a prop when we use the button site wide -->
+						<span v-if="!loading" class="font-semibold">
+							Log in
+						</span>
+					</button>
+				</div>
 			</div>
 			<div v-if="errorOccurred" class="flex justify-center w-full mt-2 text-red-500">
 				{{ errorMessage ? errorMessage : "An error occurred" }}
