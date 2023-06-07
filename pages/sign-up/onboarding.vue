@@ -41,6 +41,9 @@
 					<div>
 						{{ userData.userDisplayName }}
 					</div>
+					<div class="">
+						{{  userData.userEmailAddress }}
+					</div>
 				</div>
 			</div>
 		</div>
