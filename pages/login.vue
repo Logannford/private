@@ -23,9 +23,9 @@
 						</p>
 					</span>
 				</NuxtLink>
-				<ClientOnly>
-					<ThreeJs/>
-				</ClientOnly>
+			<ClientOnly>
+				<ThreeJs/>
+			</ClientOnly>
 			</div>
 			<div class="w-full md:w-5/12 h-screen bg-dark-black md:bg-black flex md:items-center md:justify-end md:border-l md:border-gray-600">
 				<div class="container w-full flex flex-col gap-y-7 mt-12 md:mt-0">
