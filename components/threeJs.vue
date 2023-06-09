@@ -14,9 +14,7 @@
 		Mesh, 
 		MeshBasicMaterial,
 		WebGLRenderer, 
-		CapsuleGeometry, 
 		Color, 
-		Fog, 
 		AmbientLight,
 		PlaneGeometry,
 		DoubleSide,
@@ -32,7 +30,7 @@
 	let renderer: WebGLRenderer;
 	let controls: OrbitControls;
 	let light = new AmbientLight(0xffffff, 0.7);
-	let directionLight: DirectionalLight;
+	let directionLight = new DirectionalLight(0xffffff, 0.3);
 	const container = ref<HTMLDivElement | null>(null);
 	const width = container.value?.clientWidth ?? 450;
 	const height = container.value?.clientHeight ?? 450;
@@ -44,8 +42,19 @@
 	scene.background = bgColor;
 
 	//directional light
-	directionLight = new DirectionalLight(0xffffff, 0.3);
-	directionLight.position.set(1, 5, 0);
+	directionLight.position.set(0, 5, 0);
+	directionLight.castShadow = true;
+
+	//setting the position of the directionLight
+	directionLight.shadow.mapSize.width = 1024;
+	directionLight.shadow.mapSize.height = 1024;
+	directionLight.shadow.camera.near = 0.1;
+	directionLight.shadow.camera.far = 10;
+	directionLight.shadow.camera.left = -10;
+	directionLight.shadow.camera.right = 10;
+	directionLight.shadow.camera.top = 10;
+	directionLight.shadow.camera.bottom = -10
+	directionLight.shadow.camera;
 	/*
 		PerspectiveCamera params:
 			Field of View
@@ -63,7 +72,7 @@
 
 	//making the shape with the geometry and material type / color
 	const shape = new Mesh(
-		new BoxGeometry(2, 2, 2),
+		new BoxGeometry(4, 4, 4),
 		new MeshBasicMaterial({ 
 			color: 0x008080
 		})
