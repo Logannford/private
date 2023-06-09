@@ -30,11 +30,12 @@ module.exports = {
       colors: {
         "dark-black": "#0A0A0A",
         "light-black": "#1c1c1c",
-        "onyx-black": "#3E3E3E"
+        "onyx-black": "#3E3E3E",
+        "light-grey": "#B6B6B6"
       },
       boxShadow: {
-        "backdrop": "-6px 6px #DADADA, -6px 6px #DADADA, -1px 1px #DADADA",
-        "backdrop-lg": "-16px 16px #DADADA, -6px 16px #DADADA, -1px 1px #DADADA"
+        "backdrop": "-6px 6px #B6B6B6, -6px 6px #B6B6B6, -1px 1px #B6B6B6",
+        "backdrop-lg": "-16px 16px #B6B6B6, -6px 16px #B6B6B6, -1px 1px #B6B6B6"
       },
       translate:{
         "backdrop": "-16px 16px"

@@ -37,7 +37,7 @@
 							<!-- alt methods of logging in -->
 							<div>
 								<div class="flex flex-col gap-y-6 w-full">
-									<div class="bg-white">
+									<div class="bg-light-grey">
 										<button 
 											@click="setLoginMethod('EmailPassword')"
 											class="
@@ -55,7 +55,7 @@
 											</div>
 										</button>
 									</div>
-									<div class="bg-white">
+									<div class="bg-light-grey">
 										<button 
 											@click="setLoginMethod('Google')"
 											class="
