@@ -71,26 +71,31 @@
 	camera.position.set(0, 0, 0);
 
 	//making the shape with the geometry and material type / color
+	let geometry = new BoxGeometry(4, 4, 4)
+	console.log(geometry);
 	const shape = new Mesh(
-		new BoxGeometry(4, 4, 4),
+		geometry,
 		new MeshBasicMaterial({ 
 			color: 0x008080
 		})
 	);
+
 	// Move the shape above the floor by setting its initial position
-	//shape.position.set(0, 0, 0);
+	shape.position.set(0, 0, 0);
 	shape.castShadow = true;
 
 	//setting up the ground - not using plane geometry
 	const ground = new Mesh(
 		new BoxGeometry(18, 0.5, 18),
-		new MeshPhongMaterial({ color: 0xffffff })
+		new MeshPhongMaterial({ 
+			color: 0xffffff 
+		})
 	);
 	//the ground can receive a
 	ground.receiveShadow = true;
 	ground.position.y = -5
 
-	//Create a helper for the shadow camera (optional)
+	//Create a helper for the shadow camera
 	const helper = new CameraHelper( directionLight.shadow.camera );
 	const lightHelper = new DirectionalLightHelper( directionLight, 5);
 
@@ -105,7 +110,7 @@
 	);
 
 	//set the camera position
-	camera.position.z = 8;
+	camera.position.z = 15;
 
 	function setRender(){
 		if(experience.value){
