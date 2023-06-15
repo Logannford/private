@@ -51,7 +51,7 @@
 				<label class="ml-2" for="rememberMe">Remember me</label>
 			</div>
 			<div class="mt-6 w-full">
-				<div class="bg-white">
+				<div class="bg-light-grey">
 					<button
 						class="
 							text-white bg-black border-4 border-white
