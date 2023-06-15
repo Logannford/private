@@ -7,6 +7,10 @@
 			Loading
 		</div>
 	</div>
+	<Nav />
+	<div class="mt-[1000px] h-[200%] text-white">
+		test
+	</div>
 </template>
 
 <script setup lang="ts">
@@ -18,7 +22,7 @@
 
 	//on the page mounted, watch the user value
 	onMounted(() => {
-		console.log(user);
+		//console.log(user);
 		watchEffect(() => {
 			if(!user || user.aud != "authenticated")
 				navigateTo("/login");
@@ -26,5 +30,11 @@
 	})
 	definePageMeta({
 		middleware: ["auth"]
+	})
+
+	//stuffs for SEO
+	useSeoMeta({
+		title: "Addressable • Home",
+		ogTitle: "Addressable • Home"
 	})
 </script>

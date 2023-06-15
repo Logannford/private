@@ -109,8 +109,8 @@
 	//composables
 	//this is rendered on the server so is NOT reactive, use 'useHead' for that.
 	useSeoMeta({
-		title: "Sign up • SMYW",
-		ogTitle: "Sign up • SMYW",
+		title: "Sign up • Addressable",
+		ogTitle: "Sign up • Addressable",
 		description: "Sign up to progress!",
 		ogDescription: "Sign up to progress!"
 	})
