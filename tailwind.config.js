@@ -37,6 +37,9 @@ module.exports = {
         "backdrop": "-6px 6px #B6B6B6, -6px 6px #B6B6B6, -1px 1px #B6B6B6",
         "backdrop-lg": "-16px 16px #B6B6B6, -6px 16px #B6B6B6, -1px 1px #B6B6B6"
       },
+      transitionProperty:{
+        "mega-menu": "opacity .25s,visibility .25s,transform .25s"
+      },
       translate:{
         "backdrop": "-16px 16px"
       }

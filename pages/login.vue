@@ -148,7 +148,7 @@
 
 	//stuffs for SEO
 	useSeoMeta({
-		title: "Login • SMYW",
-		ogTitle: "Login • SMYW"
+		title: "Login • Addressable",
+		ogTitle: "Login • Addressable"
 	})
 </script>

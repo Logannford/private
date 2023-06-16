@@ -20,7 +20,7 @@ export default defineNuxtConfig({
 				}
 			],
 			bodyAttrs: {
-				class: "bg-dark-black w-full h-screen overflow-hidden"
+				class: "bg-dark-black w-full"
 			},
 			link: [
 				{
@@ -34,6 +34,10 @@ export default defineNuxtConfig({
 				{
 					rel: "stylesheet",
 					href: "https://fonts.googleapis.com/css2?family=Eczar"
+				},
+				{
+					rel: "stylesheet",
+					href: "https://fonts.googleapis.com/css2?family=Work+Sans"
 				}
 			]
 		}

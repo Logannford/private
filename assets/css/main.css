@@ -48,9 +48,9 @@ input[type=radio]:checked + label{
 }
 	
 body{
-    font-family: "Roboto-condensed", sans-serif
+    font-family: "Work Sans"
 }
 
-h1, h2, h3, h4, h5, h6, span{
+h1, h2, h3, h4, h5, h6{
     font-family: "Eczar", sans-serif;
 }
