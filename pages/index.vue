@@ -10,11 +10,12 @@
 	<Nav />
 	<div class="text-white">
 		<PrismicRichText :field="homepage.data.slices[0].primary.homepage_banner" />
-		<SliceZone :slices="homepage.data.slices" />
+		<slice-zone :components="components" :slices="homepage.data.slices" />
 	</div>
 </template>
 
 <script setup>
+	import { components } from "@/slices";
 	const { client } = usePrismic();
 	const { data: homepage } = await useAsyncData(() => 
 		client.getSingle("homepage")
