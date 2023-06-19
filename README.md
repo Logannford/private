@@ -9,13 +9,13 @@ It will be using:
 • ThreeJS 
 • Tailwind
 
-### Database
+### Database:
 •  Supabase 
 
-### CMS 
+### CMS: 
 • Prismic
 
-### Hosting + testing
+### Hosting + testing:
 • Netlify
 • Cypress
 
