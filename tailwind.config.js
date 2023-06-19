@@ -25,6 +25,7 @@ module.exports = {
     },
     extend: {
       fontSize:{
+        xxl: ["4rem", "4rem"],
         title: ["5rem", "4rem"]
       },
       colors: {

@@ -2,13 +2,23 @@
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="container"
+    class="px-6 md:px-12 lg:px-20 text-white bg-dark-black"
   >
-    <PrismicRichText 
-      :field="slice.primary.homepage_banner" 
-      class="text-xl font-bold"
-    />
-    <PrismicRichText :field="slice.primary.homepage_sub_field" />
+    <div class="grid grid-cols-2 gap-x-10">
+      <div class="flex flex-col gap-y-5">
+        <PrismicRichText 
+          :field="slice.primary.homepage_banner" 
+          class="text-xxl font-bold mt-20"
+        />
+        <PrismicRichText 
+          :field="slice.primary.homepage_sub_field" 
+          class="w-2/3 font-thin"
+        />
+      </div>
+      <div class="flex justify-end">
+        <ThreeJs />
+      </div>
+    </div>
   </section>
 </template>
 

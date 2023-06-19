@@ -105,8 +105,8 @@
 		directionLight, 
 		shape, 
 		ground, 
-		helper, 
-		lightHelper
+		//helper, 
+		//lightHelper
 	);
 
 	//set the camera position
