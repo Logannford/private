@@ -1,0 +1,33 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"homepage_banner": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "This is a test ",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"homepage_sub_field": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nulla tempor consequat sit. Aute ut magna deserunt sint."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

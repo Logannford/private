@@ -5,7 +5,8 @@ export default defineNuxtConfig({
 		'@nuxtjs/google-fonts',
 		'nuxt-swiper',
 		'@vueuse/nuxt',
-		'@pinia/nuxt'
+		'@pinia/nuxt',
+		"@nuxtjs/prismic",
 	],
 	app:{
 		layoutTransition: { 
@@ -23,58 +24,63 @@ export default defineNuxtConfig({
 				class: "bg-dark-black w-full"
 			},
 			link: [
-				{
-					rel: "stylesheet",
-					href: "https://fonts.googleapis.com/css2?family=Roboto+Condensed"
-				},
-				{
-					rel: "stylesheet",
-					href: "https://fonts.googleapis.com/css2?family=Barlow"
-				},
-				{
-					rel: "stylesheet",
-					href: "https://fonts.googleapis.com/css2?family=Eczar"
-				},
-				{
-					rel: "stylesheet",
-					href: "https://fonts.googleapis.com/css2?family=Work+Sans"
-				}
+					{
+						rel: "stylesheet",
+						href: "https://fonts.googleapis.com/css2?family=Roboto+Condensed"
+					},
+					{
+						rel: "stylesheet",
+						href: "https://fonts.googleapis.com/css2?family=Barlow"
+					},
+					{
+						rel: "stylesheet",
+						href: "https://fonts.googleapis.com/css2?family=Eczar"
+					},
+					{
+						rel: "stylesheet",
+						href: "https://fonts.googleapis.com/css2?family=Work+Sans"
+					}
 			]
 		}
 	},
+
 	swiper: {
 
 	},
+
 	pinia: {
 		autoImports: [
 			'defineStore',
 			['defineStore', 'definePiniaStore'] 
 		]
 	},
+
 	runtimeConfig:{
 		supabase_db_url: "",
 		supabase_db_anon_key: ""
 	},
+
 	css: ['~/assets/css/main.css'],
+
 	postcss: {
 		plugins: {
 			tailwindcss: {},
 			autoprefixer: {},
 		},
 	},
-	googleFonts: {
-		download: true,
-		families: {
-			Roboto: true,
-			'Josefin+Sans': true,
-			Lato: [100, 300],
-			Raleway: {
-			wght: [100, 400],
-			ital: [100]
-			},
-		}
-	},
+
 	components: true,
 	pages: true,
 
+	prismic: {
+		clientConfig: {
+			routes: [
+				{
+					type: "homepage",
+					path: "/",
+				}
+			]
+		},
+		endpoint: "addressable",
+	},
 })
