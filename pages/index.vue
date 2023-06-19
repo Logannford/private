@@ -10,7 +10,7 @@
 	<Nav />
 	<div class="text-white">
 		<PrismicRichText :field="homepage.data.slices[0].primary.homepage_banner" />
-		<slice-zone :components="components" :slices="homepage.data.slices" />
+		<sliceZone :components="components" :slices="[homepage.data.slices[0]]" />
 	</div>
 </template>
 
@@ -34,7 +34,7 @@
 			if(!user || user.aud != "authenticated")
 				navigateTo("/login");
 		});
-		console.log(homepage.value.data.slices[0].primary.homepage_banner[0].text);
+		console.log(homepage.value.data.slices);
 	})
 	definePageMeta({
 		middleware: ["auth"]

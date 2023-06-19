@@ -1,7 +1,23 @@
 # PRIVATE
 
-Private is a social media app that i'm going to (try) and develop using a modern stack to improve different areas of my knowledge.
-It will be using: Nuxt 3, Vue 3, Pinia, ThreeJS, Tailwind, Supabase, Cypress, Docker, Netlify
+Private is a way of anonymising peoples home addresses when making purchases.
+It will be using: 
+
+### Coding technologies:
+• Nuxt 3 + Vue 3
+•  Pinia 
+• ThreeJS 
+• Tailwind
+
+### Database
+•  Supabase 
+
+### CMS 
+• Prismic
+
+### Hosting + testing
+• Netlify
+• Cypress
 
 # Nuxt 3 Minimal Starter
 
