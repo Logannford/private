@@ -33,7 +33,7 @@
 						:to="item.route"
 						class="flex gap-x-2 items-center group hover:cursor-pointer"
 						:aria-expanded="item.hovered.value || item.hasPopup"
-						:aria-had-popup="item.hasPopup"
+						:aria-has-popup="item.hasPopup"
 					>
 						<h6
 							class="
@@ -95,7 +95,7 @@
 
 	//data properties
 	const buttonClasses = 
-		ref("text-white bg-purple-500 border-2 border-white rounded-md w-full p-3 md:px-6 md:py-2 duration-300 translate-x-1 -translate-y-1 hover:translate-x-0 hover:-translate-y-0 hover:cursor-pointer flex items-center hover:font-bold");
+		ref("text-white bg-dark-purple border-2 border-white rounded-md w-full p-3 md:px-6 md:py-2 duration-300 translate-x-1 -translate-y-1 hover:translate-x-0 hover:-translate-y-0 hover:cursor-pointer flex items-center hover:font-bold");
 	const megaMenuChildren = 
 		ref("top-16 absolute opacity-0 -translate-y-4 invisible ease-in-out duration-300 group-hover:block group-hover:opacity-100 group-hover:translate-y-0 -left-10 group-hover:visible group-hover:transform rounded-md z-50 min-w-[300px]");
 	const isScrolled = ref(false);
