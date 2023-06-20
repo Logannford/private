@@ -26,20 +26,16 @@ export default defineNuxtConfig({
 			link: [
 					{
 						rel: "stylesheet",
-						href: "https://fonts.googleapis.com/css2?family=Roboto+Condensed"
-					},
-					{
-						rel: "stylesheet",
-						href: "https://fonts.googleapis.com/css2?family=Barlow"
-					},
-					{
-						rel: "stylesheet",
-						href: "https://fonts.googleapis.com/css2?family=Eczar"
-					},
-					{
-						rel: "stylesheet",
 						href: "https://fonts.googleapis.com/css2?family=Work+Sans"
-					}
+					},
+					{
+						rel: "stylesheet",
+						href: "https://fonts.googleapis.com/css2?family=Corben"
+					},
+					{
+						rel: "stylesheet",
+						href: "https://fonts.googleapis.com/css2?family=Solway"
+					},
 			]
 		}
 	},

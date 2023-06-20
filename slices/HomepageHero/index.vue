@@ -8,11 +8,11 @@
       <div class="flex flex-col gap-y-5">
         <PrismicRichText 
           :field="slice.primary.homepage_banner" 
-          class="text-xxl font-bold mt-20"
+          class="text-xxl font-semibold mt-20"
         />
         <PrismicRichText 
           :field="slice.primary.homepage_sub_field" 
-          class="w-2/3 font-thin"
+          class="w-2/3 font-thin text-lg"
         />
       </div>
       <div class="flex justify-end">

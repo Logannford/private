@@ -110,7 +110,7 @@
 	);
 
 	//set the camera position
-	camera.position.z = 15;
+	camera.position.z = 10;
 
 	function setRender(){
 		if(experience.value){

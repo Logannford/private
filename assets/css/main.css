@@ -47,10 +47,14 @@ input[type=radio]:checked + label{
     background-color: green;
 }
 	
-body{
+body, h6{
     font-family: "Work Sans"
 }
 
-h1, h2, h3, h4, h5, h6{
-    font-family: "Work Sans", sans-serif;
+p{
+    font-family: "Solway", sans-serif
+}
+
+h1, h2, h3, h4, h5{
+    font-family: "Corben", sans-serif;
 }
