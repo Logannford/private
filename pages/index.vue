@@ -15,7 +15,6 @@
 			:slices="[homepage.data.slices[0]]" 
 		/>
 		<!-- <PrismicRichText :field="homepage.data.slices[0].primary.homepage_banner" /> -->
-		<!-- <div class="grid grid-cols-2 text-xxl lg:px-20 gap-y-5 mt-20 w-2/3 mt-5 font-thin"></div> -->
 	</div>
 </template>
 

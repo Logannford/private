@@ -8,6 +8,7 @@ module.exports = {
     "./plugins/**/*.{js,ts}",
     "./nuxt.config.{js,ts}",
     "./app.vue",
+    "./slices/**/*.vue"
   ],
   theme: {
     container: {
@@ -25,7 +26,7 @@ module.exports = {
     },
     extend: {
       fontSize:{
-        xxl: ["4rem", "4rem"],
+        xxl: ["4rem", "5rem"],
         title: ["5rem", "4rem"]
       },
       colors: {

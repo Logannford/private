@@ -5,7 +5,7 @@
     class="px-6 md:px-12 lg:px-20 text-white bg-dark-black"
   >
     <div class="grid grid-cols-2 gap-x-10">
-      <div class="flex flex-col gap-y-5">
+      <div class="flex flex-col gap-y-4">
         <PrismicRichText 
           :field="slice.primary.homepage_banner" 
           class="text-xxl font-semibold mt-20"
