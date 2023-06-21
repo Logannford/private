@@ -33,6 +33,32 @@ interface FooterDocumentData {
   footer_menu_secondary: prismic.GroupField<
     Simplify<FooterDocumentDataFooterMenuSecondaryItem>
   >;
+  /**
+   * footer_menu_tertiary field in *footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_tertiary[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  footer_menu_tertiary: prismic.GroupField<
+    Simplify<FooterDocumentDataFooterMenuTertiaryItem>
+  >;
+  /**
+   * footer_menu_quaternary field in *footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_quaternary[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  footer_menu_quaternary: prismic.GroupField<
+    Simplify<FooterDocumentDataFooterMenuQuaternaryItem>
+  >;
 }
 /**
  * Item in footer → footer menu Primary
@@ -101,6 +127,78 @@ export interface FooterDocumentDataFooterMenuSecondaryItem {
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: footer.footer_menu_secondary[].footer_menu_first_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  footer_menu_first_text: prismic.RichTextField;
+}
+/**
+ * Item in footer → footer_menu_tertiary
+ *
+ */
+export interface FooterDocumentDataFooterMenuTertiaryItem {
+  /**
+   * footer_menu_heading field in *footer → footer_menu_tertiary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_tertiary[].footer_menu_heading
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  footer_menu_heading: prismic.RichTextField;
+  /**
+   * footer_menu_first_link field in *footer → footer_menu_tertiary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_tertiary[].footer_menu_first_link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  footer_menu_first_link: prismic.LinkField;
+  /**
+   * footer_menu_first_text field in *footer → footer_menu_tertiary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_tertiary[].footer_menu_first_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  footer_menu_first_text: prismic.RichTextField;
+}
+/**
+ * Item in footer → footer_menu_quaternary
+ *
+ */
+export interface FooterDocumentDataFooterMenuQuaternaryItem {
+  /**
+   * footer_menu_heading field in *footer → footer_menu_quaternary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_quaternary[].footer_menu_heading
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  footer_menu_heading: prismic.RichTextField;
+  /**
+   * footer_menu_first_link field in *footer → footer_menu_quaternary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_quaternary[].footer_menu_first_link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  footer_menu_first_link: prismic.LinkField;
+  /**
+   * footer_menu_first_text field in *footer → footer_menu_quaternary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_quaternary[].footer_menu_first_text
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
@@ -298,6 +396,8 @@ declare module "@prismicio/client" {
       FooterDocumentData,
       FooterDocumentDataFooterMenuPrimaryItem,
       FooterDocumentDataFooterMenuSecondaryItem,
+      FooterDocumentDataFooterMenuTertiaryItem,
+      FooterDocumentDataFooterMenuQuaternaryItem,
       FooterDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,

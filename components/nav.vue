@@ -4,7 +4,7 @@
 			sticky top-0 w-full
 		"
 		:class="{
-			'shadow-md shadow-light-black': isScrolled,
+			'shadow-md shadow-light-black bg-dark-black': isScrolled,
 		}"
 	>
 		<div class="flex items-center justify-between text-white pt-8 pb-5 container">
