@@ -7,12 +7,10 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "heading1",
+						"type": "paragraph",
 						"content": {
-							"text": "This is a test ",
-							"spans": []
-						},
-						"direction": "ltr"
+							"text": "Ad id laborum tempor occaecat sunt voluptate. Velit reprehenderit proident exercitation culpa magna commodo tempor exercitation tempor consectetur cillum labore veniam."
+						}
 					}
 				]
 			},
@@ -22,10 +20,26 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Nulla tempor consequat sit. Aute ut magna deserunt sint."
-						}
+							"text": "This is the homepage sub heading for longer, informative content",
+							"spans": []
+						},
+						"direction": "ltr"
 					}
 				]
+			},
+			"homepage_primary_cta": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"homepage_secondary_cta": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
 			}
 		},
 		"items": []

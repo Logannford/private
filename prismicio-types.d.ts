@@ -123,6 +123,26 @@ interface HomepageHeroSliceDefaultPrimary {
    *
    */
   homepage_sub_field: prismic.RichTextField;
+  /**
+   * homepage_primary_cta field in *HomepageHero → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_hero.primary.homepage_primary_cta
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  homepage_primary_cta: prismic.LinkField;
+  /**
+   * homepage_secondary_cta field in *HomepageHero → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage_hero.primary.homepage_secondary_cta
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  homepage_secondary_cta: prismic.LinkField;
 }
 /**
  * Default variation for HomepageHero Slice
