@@ -8,12 +8,23 @@
 		</div>
 	</div>
 	<Nav />
-	<div class="mt-[1000px] h-[200%] text-white">
-		test
+	<div class="py-20">
+		<sliceZone 
+			wrapper="div" 
+			:components="components" 
+			:slices="[homepage.data.slices[0]]" 
+		/>
+		<!-- <PrismicRichText :field="homepage.data.slices[0].primary.homepage_banner" /> -->
 	</div>
 </template>
 
-<script setup lang="ts">
+<script setup>
+	import { components } from "@/slices";
+	const { client } = usePrismic();
+	const { data: homepage } = await useAsyncData(() => 
+		client.getSingle("homepage")
+	);
+
 	const supabase = useSupabaseClient();
 
 	//get a user object from supabase
@@ -26,7 +37,8 @@
 		watchEffect(() => {
 			if(!user || user.aud != "authenticated")
 				navigateTo("/login");
-		})
+		});
+		console.log(homepage.value.data.slices);
 	})
 	definePageMeta({
 		middleware: ["auth"]

@@ -76,7 +76,7 @@
 	const shape = new Mesh(
 		geometry,
 		new MeshBasicMaterial({ 
-			color: 0x008080
+			color: 0x7d3eea
 		})
 	);
 
@@ -91,7 +91,7 @@
 			color: 0xffffff 
 		})
 	);
-	//the ground can receive a
+	//the ground can receive a shadow
 	ground.receiveShadow = true;
 	ground.position.y = -5
 
@@ -105,12 +105,12 @@
 		directionLight, 
 		shape, 
 		ground, 
-		helper, 
-		lightHelper
+		//helper, 
+		//lightHelper
 	);
 
 	//set the camera position
-	camera.position.z = 15;
+	camera.position.z = 10;
 
 	function setRender(){
 		if(experience.value){

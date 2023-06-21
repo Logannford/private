@@ -8,6 +8,7 @@ module.exports = {
     "./plugins/**/*.{js,ts}",
     "./nuxt.config.{js,ts}",
     "./app.vue",
+    "./slices/**/*.vue"
   ],
   theme: {
     container: {
@@ -25,13 +26,15 @@ module.exports = {
     },
     extend: {
       fontSize:{
+        xxl: ["4rem", "5rem"],
         title: ["5rem", "4rem"]
       },
       colors: {
         "dark-black": "#0A0A0A",
         "light-black": "#1c1c1c",
         "onyx-black": "#3E3E3E",
-        "light-grey": "#B6B6B6"
+        "light-grey": "#B6B6B6",
+        "dark-purple": "#7d3eea"
       },
       boxShadow: {
         "backdrop": "-6px 6px #B6B6B6, -6px 6px #B6B6B6, -1px 1px #B6B6B6",
