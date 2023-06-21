@@ -95,6 +95,16 @@ export interface FooterDocumentDataFooterMenuPrimaryItem {
    *
    */
   footer_menu_first_text: prismic.RichTextField;
+  /**
+   * footer_menu_fields field in *footer → footer menu Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_primary[].footer_menu_fields
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  footer_menu_fields: prismic.ContentRelationshipField;
 }
 /**
  * Item in footer → footer_menu_secondary
