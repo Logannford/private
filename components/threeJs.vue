@@ -104,13 +104,13 @@
 		light,
 		directionLight, 
 		shape, 
-		ground, 
+		//ground, 
 		//helper, 
 		//lightHelper
 	);
 
 	//set the camera position
-	camera.position.z = 10;
+	camera.position.z = 6;
 
 	function setRender(){
 		if(experience.value){
@@ -146,8 +146,10 @@
 				the element for event listeners 		
 					- cannot be the canvas
 		*/
-		if(container.value)
+		if(container.value){
 			controls = new OrbitControls(camera, container.value);
+			controls.enableZoom = false;
+		}
 		setRender();
 		animate();
 	})

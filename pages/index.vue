@@ -16,6 +16,8 @@
 		/>
 		<!-- <PrismicRichText :field="homepage.data.slices[0].primary.homepage_banner" /> -->
 	</div>
+	<!-- footer component -->
+	<Footer />
 </template>
 
 <script setup>
