@@ -5,6 +5,167 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
   [KeyType in keyof T]: T[KeyType];
 };
+/** Content for footer documents */
+interface FooterDocumentData {
+  /**
+   * footer menu Primary field in *footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_primary[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  footer_menu_primary: prismic.GroupField<
+    Simplify<FooterDocumentDataFooterMenuPrimaryItem>
+  >;
+  /**
+   * footer_menu_tertiary field in *footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_tertiary[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  footer_menu_tertiary: prismic.GroupField<
+    Simplify<FooterDocumentDataFooterMenuTertiaryItem>
+  >;
+  /**
+   * footer_menu_quaternary field in *footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_quaternary[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  footer_menu_quaternary: prismic.GroupField<
+    Simplify<FooterDocumentDataFooterMenuQuaternaryItem>
+  >;
+}
+/**
+ * Item in footer → footer menu Primary
+ *
+ */
+export interface FooterDocumentDataFooterMenuPrimaryItem {
+  /**
+   * footer_menu_primary_heading field in *footer → footer menu Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_primary[].footer_menu_heading
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  footer_menu_heading: prismic.RichTextField;
+  /**
+   * footer_menu_primary_first_link field in *footer → footer menu Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_primary[].footer_menu_first_link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  footer_menu_first_link: prismic.LinkField;
+  /**
+   * footer_menu_primary_first_text field in *footer → footer menu Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_primary[].footer_menu_first_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  footer_menu_first_text: prismic.RichTextField;
+}
+/**
+ * Item in footer → footer_menu_tertiary
+ *
+ */
+export interface FooterDocumentDataFooterMenuTertiaryItem {
+  /**
+   * footer_menu_heading field in *footer → footer_menu_tertiary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_tertiary[].footer_menu_heading
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  footer_menu_heading: prismic.RichTextField;
+  /**
+   * footer_menu_first_link field in *footer → footer_menu_tertiary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_tertiary[].footer_menu_first_link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  footer_menu_first_link: prismic.LinkField;
+  /**
+   * footer_menu_first_text field in *footer → footer_menu_tertiary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_tertiary[].footer_menu_first_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  footer_menu_first_text: prismic.RichTextField;
+}
+/**
+ * Item in footer → footer_menu_quaternary
+ *
+ */
+export interface FooterDocumentDataFooterMenuQuaternaryItem {
+  /**
+   * footer_menu_heading field in *footer → footer_menu_quaternary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_quaternary[].footer_menu_heading
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  footer_menu_heading: prismic.RichTextField;
+  /**
+   * footer_menu_first_link field in *footer → footer_menu_quaternary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_quaternary[].footer_menu_first_link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  footer_menu_first_link: prismic.LinkField;
+  /**
+   * footer_menu_first_text field in *footer → footer_menu_quaternary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_menu_quaternary[].footer_menu_first_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  footer_menu_first_text: prismic.RichTextField;
+}
+/**
+ * footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<FooterDocumentData>, "footer", Lang>;
 /** Content for homepage documents */
 interface HomepageDocumentData {
   /**
@@ -72,6 +233,79 @@ export type HomepageDocument<Lang extends string = string> =
     "homepage",
     Lang
   >;
+/** Content for site settings documents */
+interface SiteSettingsDocumentData {
+  /**
+   * company_name field in *site settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.company_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  company_name: prismic.RichTextField;
+  /**
+   * company_email_address field in *site settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.company_email_address
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  company_email_address: prismic.RichTextField;
+  /**
+   * company_logo field in *site settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.company_logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  company_logo: prismic.ImageField<never>;
+  /**
+   * company_instagram field in *site settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.company_instagram
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  company_instagram: prismic.LinkField;
+  /**
+   * company_linkedin field in *site settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: site_settings.company_linkedin
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  company_linkedin: prismic.LinkField;
+}
+/**
+ * site settings document from Prismic
+ *
+ * - **API ID**: `site_settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SiteSettingsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SiteSettingsDocumentData>,
+    "site_settings",
+    Lang
+  >;
 /** Content for test documents */
 interface TestDocumentData {
   /**
@@ -97,7 +331,11 @@ interface TestDocumentData {
  */
 export type TestDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<TestDocumentData>, "test", Lang>;
-export type AllDocumentTypes = HomepageDocument | TestDocument;
+export type AllDocumentTypes =
+  | FooterDocument
+  | HomepageDocument
+  | SiteSettingsDocument
+  | TestDocument;
 /**
  * Primary content in HomepageHero → Primary
  *
@@ -183,9 +421,16 @@ declare module "@prismicio/client" {
   }
   namespace Content {
     export type {
+      FooterDocumentData,
+      FooterDocumentDataFooterMenuPrimaryItem,
+      FooterDocumentDataFooterMenuTertiaryItem,
+      FooterDocumentDataFooterMenuQuaternaryItem,
+      FooterDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
       HomepageDocument,
+      SiteSettingsDocumentData,
+      SiteSettingsDocument,
       TestDocumentData,
       TestDocument,
       AllDocumentTypes,

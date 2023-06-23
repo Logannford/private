@@ -16,6 +16,8 @@
 		/>
 		<!-- <PrismicRichText :field="homepage.data.slices[0].primary.homepage_banner" /> -->
 	</div>
+	<!-- footer component -->
+	<Footer />
 </template>
 
 <script setup>
@@ -29,11 +31,23 @@
 
 	//get a user object from supabase
 	//now lets get the data from the user
-	const { data: { user } } = await supabase.auth.getUser()
+	const { data: { user } } = await supabase.auth.getUser();
+
+	const updateUserTable = async () => {
+		// Add the user to the "profiles" table in the Supabase database
+		let { data } = await supabase
+			.from("profiles")
+			.insert({
+				user_id: user?.id,
+				updated_at: new Date(),
+				email: user?.email,
+			})
+	}
 
 	//on the page mounted, watch the user value
 	onMounted(() => {
-		//console.log(user);
+		updateUserTable();
+		console.log(user)
 		watchEffect(() => {
 			if(!user || user.aud != "authenticated")
 				navigateTo("/login");

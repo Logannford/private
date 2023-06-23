@@ -1,0 +1,53 @@
+{
+  "id": "site_settings",
+  "label": "site settings",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "company_name": {
+        "type": "StructuredText",
+        "config": {
+          "label": "company_name",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "company_email_address": {
+        "type": "StructuredText",
+        "config": {
+          "label": "company_email_address",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "company_logo": {
+        "type": "Image",
+        "config": {
+          "label": "company_logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "company_instagram": {
+        "type": "Link",
+        "config": {
+          "label": "company_instagram",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "company_linkedin": {
+        "type": "Link",
+        "config": {
+          "label": "company_linkedin",
+          "placeholder": "",
+          "select": null
+        }
+      }
+    }
+  }
+}

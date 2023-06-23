@@ -1,10 +1,10 @@
 <template>
 	<nav 
 		class="
-			sticky top-0 w-full
+			top-0 w-full transition-colors duration-300 z-50
 		"
 		:class="{
-			'shadow-sm shadow-white': isScrolled,
+			'shadow-md shadow-light-black bg-dark-black': isScrolled,
 		}"
 	>
 		<div class="flex items-center justify-between text-white pt-8 pb-5 container">
