@@ -1,10 +1,10 @@
 <template>
 	<nav 
 		class="
-			top-0 w-full transition-colors duration-300 z-50
+			sticky top-0 w-full transition-colors duration-300 z-50
 		"
 		:class="{
-			'shadow-md shadow-light-black bg-dark-black': isScrolled,
+			' shadow-dark-purple bg-dark-black': isScrolled,
 		}"
 	>
 		<div class="flex items-center justify-between text-white pt-8 pb-5 container">
@@ -37,7 +37,7 @@
 					>
 						<h6
 							class="
-								group-hover:bg-white group-hover:text-black px-4 py-2 
+								group-hover:text-dark-purple px-4 py-2 
 								rounded-md duration-500 group-hover:font-medium
 							"
 						>
@@ -50,13 +50,13 @@
 						v-if="item.hasPopup"
 					>
 						<div class="relative p-6 bg-white rounded-md shadow-xl w-full">
-							<div 
+							<!-- <div 
 								class="
 									bg-white transform absolute -top-2 rotate-45 translate-x-0
 									w-6 h-6 transition-transform group-hover:translate-x-12
 									ease-in-out duration-500
 								"
-							></div>
+							></div> -->
 							<div class="px-3 py-2">
 								<span class="text-black">
 									test

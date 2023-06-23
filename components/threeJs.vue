@@ -22,8 +22,9 @@
 		PCFSoftShadowMap,
 		CameraHelper,
 		DirectionalLightHelper,
-		BoxGeometry,
-		MeshPhongMaterial
+		TorusGeometry,
+		MeshPhongMaterial,
+		MeshToonMaterial
 	} from 'three'
 	import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
@@ -71,10 +72,10 @@
 	camera.position.set(0, 0, 0);
 
 	//making the shape with the geometry and material type / color
-	let geometry = new BoxGeometry(4, 4, 4)
+	let geometry = new TorusGeometry( 10, 3, 16, 100 )
 	const shape = new Mesh(
 		geometry,
-		new MeshBasicMaterial({ 
+		new MeshToonMaterial({ 
 			color: 0x7d3eea
 		})
 	);
@@ -84,15 +85,15 @@
 	shape.castShadow = true;
 
 	//setting up the ground - not using plane geometry
-	const ground = new Mesh(
-		new BoxGeometry(18, 0.5, 18),
-		new MeshPhongMaterial({ 
-			color: 0xffffff 
-		})
-	);
+	// const ground = new Mesh(
+	// 	new BoxGeometry(18, 0.5, 18),
+	// 	new MeshPhongMaterial({ 
+	// 		color: 0xffffff 
+	// 	})
+	// );
 	//the ground can receive a shadow
-	ground.receiveShadow = true;
-	ground.position.y = -5
+	// ground.receiveShadow = true;
+	// ground.position.y = -5
 
 	//Create a helper for the shadow camera
 	const helper = new CameraHelper( directionLight.shadow.camera );
@@ -109,7 +110,7 @@
 	);
 
 	//set the camera position
-	camera.position.z = 6;
+	camera.position.z = 30;
 
 	function setRender(){
 		if(experience.value){

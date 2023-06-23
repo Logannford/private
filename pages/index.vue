@@ -47,7 +47,6 @@
 	//on the page mounted, watch the user value
 	onMounted(() => {
 		updateUserTable();
-		console.log(user)
 		watchEffect(() => {
 			if(!user || user.aud != "authenticated")
 				navigateTo("/login");
