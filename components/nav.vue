@@ -1,7 +1,7 @@
 <template>
 	<nav 
 		class="
-			sticky top-0 w-full
+			sticky top-0 w-full transition-colors duration-300
 		"
 		:class="{
 			'shadow-md shadow-light-black bg-dark-black': isScrolled,

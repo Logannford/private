@@ -150,10 +150,12 @@
 			});
 			if(error)
 				throw Error;
-			else{
-				userData.userEmailAddress = email.value;
-				navigateTo("/sign-up/onboarding");
-			}
+
+			// Update the userEmailAddress in your userData store
+			userData.userEmailAddress = email.value;
+
+    // Redirect to the onboarding page
+    router.push("/");
 		}
 		catch(error: string | any){
 			errorOccurred.value = true;

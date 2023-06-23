@@ -2,7 +2,7 @@
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="px-6 md:px-12 lg:px-20 text-white bg-dark-black"
+    class="px-6 md:px-12 lg:px-20 text-white bg-dark-black min-h-screen"
   >
     <div class="grid grid-cols-2 gap-x-10">
       <div class="flex flex-col gap-y-4">

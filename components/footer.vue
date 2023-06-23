@@ -6,7 +6,7 @@
 					AnonAddress
 				</div>
 				<div 
-					class="w-full flex justify-center items-center flex-col gap-y-6"
+					class="w-full flex flex-col gap-y-6"
 					v-for="(footerChild, index) in footer.results[0].data"
 					:key="index"
 				>
