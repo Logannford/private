@@ -11,7 +11,7 @@
 						:field="siteSettings.results[0].data.company_email_address"
 						class="text-sm text-light-grey"
 					/>
-					<div class="mt-7 flex gap-x-4 text-light-grey">
+					<div class="mt-7 flex gap-x-4 text-light-grey hover:text-white duration-300">
 						<PrismicLink 
 							:field="siteSettings.results[0].data.company_instagram"
 						>
