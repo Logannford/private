@@ -1,5 +1,5 @@
 <template>
-	<div class="border-t border-light-black min-h-[100px]">
+	<footer class="min-h-[100px]">
 		<div class="container py-16 text-white">
 			<div class="flex gap-x-48">
 				<div class="flex flex-col gap-y-2">
@@ -54,7 +54,27 @@
 				</div>
 			</div>
 		</div>
-	</div>
+		<div class="w-full container text-light-grey">
+			<div class="h-px bg-light-black w-full"></div>
+			<div class="py-5 flex justify-between">
+				<span class="text-xs">
+					© AnonAddress 2023 All rights reserved
+				</span>
+				<div class="flex gap-x-3">
+					<NuxtLink to="/privacy-policy">
+						<span class="text-xs hover:underline">
+							Privacy Policy
+						</span>
+					</NuxtLink>
+					<NuxtLink to="/terms-and-conditions">
+						<span class="text-xs hover:underline">
+							Terms and Conditions
+						</span>
+					</NuxtLink>
+				</div>
+			</div>
+		</div>
+	</footer>
 </template>
 
 <script setup>
@@ -72,8 +92,5 @@
 	//methods
 	
 	//lifecycle hooks
-	onMounted(() => {
-		console.log(siteSettings.value.results[0].data.company_instagram)
-		console.log(footer.value.results[0].data);
-	})
+	
 </script>
