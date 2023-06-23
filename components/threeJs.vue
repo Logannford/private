@@ -72,7 +72,6 @@
 
 	//making the shape with the geometry and material type / color
 	let geometry = new BoxGeometry(4, 4, 4)
-	console.log(geometry);
 	const shape = new Mesh(
 		geometry,
 		new MeshBasicMaterial({ 

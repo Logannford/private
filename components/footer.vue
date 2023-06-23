@@ -1,6 +1,6 @@
 <template>
-	<footer class="min-h-[100px]">
-		<div class="container py-16 text-white">
+	<footer class="min-h-[100px] bg-white/95 rounded-tl-[7rem]">
+		<div class="container py-16 text-dark-black">
 			<div class="flex gap-x-48">
 				<div class="flex flex-col gap-y-2">
 					<PrismicRichText
@@ -9,20 +9,20 @@
 					/>
 					<PrismicRichText  
 						:field="siteSettings.results[0].data.company_email_address"
-						class="text-sm text-light-grey"
+						class="text-sm text-dark-black/50"
 					/>
-					<div class="mt-7 flex gap-x-4 text-light-grey hover:text-white duration-300">
+					<div class="mt-7 flex gap-x-4 text-dark-black/50">
 						<PrismicLink 
 							:field="siteSettings.results[0].data.company_instagram"
 						>
-							<div class="w-5 h-5">
+							<div class="w-5 h-5 hover:text-black duration-300">
 								<IconsInstagram />
 							</div>
 						</PrismicLink>
 						<PrismicLink
 							:field="siteSettings.results[0].data.company_linkedin"
 						>
-							<div class="w-5 h-5">
+							<div class="w-5 h-5 hover:text-black duration-300">
 								<IconsLinkedin />
 							</div>
 						</PrismicLink>
@@ -45,7 +45,7 @@
 						>
 							<PrismicLink 
 								:field="footerMenu.footer_menu_first_link"
-								class="text-light-grey text-sm hover:cursor-pointer hover:text-white duration-300"
+								class="text-dark-black/50 text-sm hover:cursor-pointer hover:text-dark-purple duration-300"
 							>
 								{{ footerMenu.footer_menu_first_text[0]?.text ?? "" }}
 							</PrismicLink>
@@ -54,7 +54,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="w-full container text-light-grey">
+		<div class="w-full container text-dark-black/50">
 			<div class="h-px bg-light-black w-full"></div>
 			<div class="py-5 flex justify-between">
 				<span class="text-xs">
@@ -62,12 +62,12 @@
 				</span>
 				<div class="flex gap-x-3">
 					<NuxtLink to="/privacy-policy">
-						<span class="text-xs hover:underline">
+						<span class="text-xs hover:text-dark-purple duration-300">
 							Privacy Policy
 						</span>
 					</NuxtLink>
 					<NuxtLink to="/terms-and-conditions">
-						<span class="text-xs hover:underline">
+						<span class="text-xs hover:text-dark-purple duration-300">
 							Terms and Conditions
 						</span>
 					</NuxtLink>
