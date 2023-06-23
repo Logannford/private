@@ -1,18 +1,15 @@
 <template>
-	<div v-if="!user" class="w-full h-screen flex flex-col justify-center items-center">
-		<div class="w-10 h-10 text-white">
-			<Spinner />
-		</div>
-		<div class="mt-2 text-white font-thin">
-			Loading
-		</div>
-	</div>
 	<Nav />
 	<div class="py-20">
 		<sliceZone 
 			wrapper="div" 
 			:components="components" 
 			:slices="[homepage.data.slices[0]]" 
+		/>
+		<SliceZone
+			wrapper="div"
+			:components="components"
+			:slices="[homepage.data.slices[1]]"
 		/>
 		<!-- <PrismicRichText :field="homepage.data.slices[0].primary.homepage_banner" /> -->
 	</div>
@@ -47,10 +44,6 @@
 	//on the page mounted, watch the user value
 	onMounted(() => {
 		updateUserTable();
-		watchEffect(() => {
-			if(!user || user.aud != "authenticated")
-				navigateTo("/login");
-		});
 		console.log(homepage.value.data.slices);
 	})
 	definePageMeta({
@@ -59,7 +52,7 @@
 
 	//stuffs for SEO
 	useSeoMeta({
-		title: "Addressable • Home",
-		ogTitle: "Addressable • Home"
+		title: "AnonAddress • Home",
+		ogTitle: "AnonAddress • Home"
 	})
 </script>

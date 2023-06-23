@@ -12,7 +12,7 @@
         />
         <PrismicRichText 
           :field="slice.primary.homepage_sub_field" 
-          class="w-2/3 font-thin text-lg"
+          class="w-2/3 font-thin text-lg text-light-grey"
         />
         <!-- CTA section -->
         <div class="flex gap-x-8 mt-5">
@@ -46,7 +46,7 @@
 import { Content } from "@prismicio/client";
 
 const buttonClasses = 
-		ref("text-white bg-dark-purple border-2 border-white rounded-md w-full p-3 md:px-6 md:py-2 duration-300 translate-x-1 -translate-y-1 hover:translate-x-0 hover:-translate-y-0 hover:cursor-pointer flex items-center hover:font-bold");
+		"text-white bg-dark-purple border-2 border-white rounded-md w-full p-3 md:px-6 md:py-2 duration-300 translate-x-1 -translate-y-1 hover:translate-x-0 hover:-translate-y-0 hover:cursor-pointer flex items-center hover:font-bold";
 
 // The array passed to `getSliceComponentProps` is purely optional.
 // Consider it as a visual hint for you when templating your slice.

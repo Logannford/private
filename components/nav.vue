@@ -1,10 +1,12 @@
 <template>
 	<nav 
 		class="
-			sticky top-0 w-full transition-colors duration-300 z-50
+			sticky top-0 w-full transition-colors duration-300 
+			z-50 backdrop-blur-0 bg-opacity-10 bg-dark-black
+			bg-clip-padding backdrop-filter backdrop-blur-md
 		"
 		:class="{
-			' shadow-dark-purple bg-dark-black': isScrolled,
+			'': isScrolled,
 		}"
 	>
 		<div class="flex items-center justify-between text-white pt-8 pb-5 container">
@@ -49,7 +51,7 @@
 						:class="megaMenuChildren"
 						v-if="item.hasPopup"
 					>
-						<div class="relative p-6 bg-white rounded-md shadow-xl w-full">
+						<div class="relative p-6 bg-white rounded-md shadow-sm shadow-dark-purple w-full">
 							<!-- <div 
 								class="
 									bg-white transform absolute -top-2 rotate-45 translate-x-0
@@ -67,7 +69,10 @@
 				</div>
 			</div>
 			<!-- login / signup -->
-			<div class="flex gap-x-4">
+			<div 
+				class="flex gap-x-4"
+				v-if="!user"
+			>
 				<div class="bg-light-grey rounded-md">
 					<NuxtLink
 						class="!bg-white !text-black"
@@ -86,6 +91,26 @@
 					</NuxtLink>
 				</div>
 			</div>
+			<div class="bg-light-grey rounded-md">
+				<NuxtLink
+					:class="buttonClasses"
+					to="/dashboard"
+					v-if="user"
+					class="group hover:border-dark-black"
+				>
+					<div class="flex gap-x-4 items-center">
+						<span>
+							Dashboard
+						</span>
+						<div class="ml-px opacity-100 group-hover:opacity-0 group-hover:hidden w-3 h-3 text-white -rotate-90 duration-300">
+							<IconsChevronDown />
+						</div>
+						<div class="hidden opacity-0 group-hover:opacity-100 group-hover:block w-3 h-3 text-white duration-300">
+							<IconsArrowRight />
+						</div>
+					</div>
+				</NuxtLink>
+			</div>
 		</div>
 	</nav>
 </template>
@@ -99,7 +124,9 @@
 	const megaMenuChildren = 
 		ref("top-16 absolute opacity-0 -translate-y-4 invisible ease-in-out duration-300 group-hover:block group-hover:opacity-100 group-hover:translate-y-0 -left-10 group-hover:visible group-hover:transform rounded-md z-50 min-w-[300px]");
 	const isScrolled = ref(false);
-	const activeLink = ref()
+	const activeLink = ref();
+
+	const user = useSupabaseUser();
 
 	const menuItems = [
 		{
@@ -134,7 +161,7 @@
 
 	//methods
 	const pageScrolled = () => {
-		if(window.scrollY > 0)
+		if(window.scrollY > 100)
 			isScrolled.value = true;
 		else
 			isScrolled.value = false;

@@ -9,7 +9,12 @@
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
-        "config": { "choices": { "homepage_hero": { "type": "SharedSlice" } } }
+        "config": {
+          "choices": {
+            "homepage_hero": { "type": "SharedSlice" },
+            "cta_slice": { "type": "SharedSlice" }
+          }
+        }
       }
     },
     "SEO & Metadata": {

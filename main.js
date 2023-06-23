@@ -3,6 +3,8 @@ import { createPinia } from "pinia";
 import App from "./App.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
+import 'aos/dist/aos.css'
+
 
 const pinia = createPinia();
 const app = createApp(App);
