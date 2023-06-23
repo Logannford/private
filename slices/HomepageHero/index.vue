@@ -30,7 +30,7 @@
               :class="buttonClasses"
               class="!bg-white !text-black"
             >
-              How it works
+              Free Trial
             </PrismicLink>
           </div>
         </div>
