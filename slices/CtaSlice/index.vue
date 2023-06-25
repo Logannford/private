@@ -49,8 +49,7 @@
 
   //lifecycle hooks
   onMounted(() => {
-    const test = document.getElementByTagName("strong");
-    console.log(test);
+    
   })
 
   // The array passed to `getSliceComponentProps` is purely optional.
