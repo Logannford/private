@@ -217,7 +217,7 @@ interface HomepageDocumentData {
  * Slice for *homepage → Slice Zone*
  *
  */
-type HomepageDocumentDataSlicesSlice = HomepageHeroSlice;
+type HomepageDocumentDataSlicesSlice = HomepageHeroSlice | CtaSliceSlice;
 /**
  * homepage document from Prismic
  *
@@ -337,6 +337,82 @@ export type AllDocumentTypes =
   | SiteSettingsDocument
   | TestDocument;
 /**
+ * Primary content in CtaSlice → Primary
+ *
+ */
+interface CtaSliceSliceDefaultPrimary {
+  /**
+   * CTA main heading field in *CtaSlice → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta_slice.primary.cta_main_heading
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  cta_main_heading: prismic.RichTextField;
+  /**
+   * cta subheading field in *CtaSlice → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta_slice.primary.cta_subheading
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  cta_subheading: prismic.RichTextField;
+  /**
+   * cta link primary field in *CtaSlice → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta_slice.primary.cta_link_primary
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  cta_link_primary: prismic.LinkField;
+  /**
+   * cta link secondary field in *CtaSlice → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta_slice.primary.cta_link_secondary
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  cta_link_secondary: prismic.LinkField;
+}
+/**
+ * Default variation for CtaSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CtaSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CtaSliceSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *CtaSlice*
+ *
+ */
+type CtaSliceSliceVariation = CtaSliceSliceDefault;
+/**
+ * CtaSlice Shared Slice
+ *
+ * - **API ID**: `cta_slice`
+ * - **Description**: `CtaSlice`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CtaSliceSlice = prismic.SharedSlice<
+  "cta_slice",
+  CtaSliceSliceVariation
+>;
+/**
  * Primary content in HomepageHero → Primary
  *
  */
@@ -434,6 +510,10 @@ declare module "@prismicio/client" {
       TestDocumentData,
       TestDocument,
       AllDocumentTypes,
+      CtaSliceSliceDefaultPrimary,
+      CtaSliceSliceDefault,
+      CtaSliceSliceVariation,
+      CtaSliceSlice,
       HomepageHeroSliceDefaultPrimary,
       HomepageHeroSliceDefault,
       HomepageHeroSliceVariation,

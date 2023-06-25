@@ -1,31 +1,23 @@
 <template>
-	<button
-		class="
-			bg-gradient-to-r from-cyan-500 to-blue-500 
-			rounded-xl w-full text-white px-6 py-4 duration-300
-			hover:cursor-pointer hover:text-black
-		"
-		ref="button"
-		type="submit"
-	>
-		<div 
-			v-if="loading"
-			class="text-white w-5 h-5 w-full flex justify-center"
+	<div>
+		<button
+			:class="buttonClasses"
 		>
-			<Spinner />
-		</div>
-		<!-- the text is passed in as a prop when we use the button site wide -->
-		<span>
-			{{ loading ? loadingText : text }}
-		</span>
-	</button>
+			<span>
+				{{ loading ? loadingText : text }}
+			</span>
+		</button>
+	</div>
 </template>
 
 <script setup lang="ts">
-	import { defineProps, ref, onMounted } from 'vue';
 
+	//data properties
 	const button = ref(null);
 	const loading = ref(false);
+
+	const buttonClasses = 
+		"text-white bg-dark-purple border-2 border-white rounded-md w-full p-3 md:px-6 md:py-2 duration-300 translate-x-1 -translate-y-1 hover:translate-x-0 hover:-translate-y-0 hover:cursor-pointer flex items-center hover:font-bold";
 
 	//props
 	defineProps({
@@ -42,6 +34,8 @@
 			default: false
 		}
 	})
+
+	//methods
 
 	const turnBtnOn = () => {
 		loading.value = true;
