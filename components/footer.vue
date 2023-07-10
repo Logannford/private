@@ -15,14 +15,14 @@
 						<PrismicLink 
 							:field="siteSettings.results[0].data.company_instagram"
 						>
-							<div class="w-5 h-5 hover:text-black duration-300">
+							<div class="w-5 h-5 hover:text-dark-purple duration-300">
 								<IconsInstagram />
 							</div>
 						</PrismicLink>
 						<PrismicLink
 							:field="siteSettings.results[0].data.company_linkedin"
 						>
-							<div class="w-5 h-5 hover:text-black duration-300">
+							<div class="w-5 h-5 hover:text-dark-purple duration-300">
 								<IconsLinkedin />
 							</div>
 						</PrismicLink>

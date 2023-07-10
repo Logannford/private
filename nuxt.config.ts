@@ -39,35 +39,36 @@ export default defineNuxtConfig({
 			]
 		}
 	},
-
-	swiper: {
-
+	build: {
+		transpile: ['gsap'],
 	},
-
+	plugins:[
+		{ 
+			src: "./plugins/ScrollMagic.js", 
+			mode: 'client' 
+		}
+	],
+	swiper: {
+	},
 	pinia: {
 		autoImports: [
 			'defineStore',
 			['defineStore', 'definePiniaStore'] 
 		]
 	},
-
 	runtimeConfig:{
 		supabase_db_url: "",
 		supabase_db_anon_key: ""
 	},
-
 	css: ['~/assets/css/main.css'],
-
 	postcss: {
 		plugins: {
 			tailwindcss: {},
 			autoprefixer: {},
 		},
 	},
-
 	components: true,
 	pages: true,
-
 	prismic: {
 		clientConfig: {
 			routes: [
