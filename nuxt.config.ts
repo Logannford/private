@@ -43,10 +43,7 @@ export default defineNuxtConfig({
 		transpile: ['gsap'],
 	},
 	plugins:[
-		{ 
-			src: "./plugins/ScrollMagic.js", 
-			mode: 'client' 
-		}
+		
 	],
 	swiper: {
 	},
