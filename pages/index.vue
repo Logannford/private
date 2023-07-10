@@ -1,6 +1,6 @@
 <template>
 	<Nav />
-	<div class="py-20">
+	<div class="py-20 overflow-hidden">
 		<sliceZone 
 			wrapper="div" 
 			:components="components" 

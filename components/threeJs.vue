@@ -35,12 +35,12 @@
 	const container = ref<HTMLDivElement | null>(null);
 	const width = container.value?.clientWidth ?? 450;
 	const height = container.value?.clientHeight ?? 450;
-	const bgColor = new Color("#0A0A0A");
+
 
 	const experience: Ref<HTMLCanvasElement | null> = ref(null);
 	//we need a scene, camera and renderer, so that we can render the scene with the camera
 	const scene = new Scene();
-	scene.background = bgColor;
+
 
 	//directional light
 	directionLight.position.set(0, 5, 0);
