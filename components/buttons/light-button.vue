@@ -1,47 +1,40 @@
 <template>
-	<div>
-		<button
-			:class="buttonClasses"
-		>
-			<span>
-				{{ loading ? loadingText : text }}
-			</span>
-		</button>
+	<div :class="button({ intent, size })">
+		<slot />
 	</div>
 </template>
 
 <script setup lang="ts">
+	import { cva, type VariantProps } from "class-variance-authority";
 
-	//data properties
-	const button = ref(null);
-	const loading = ref(false);
-
-	const buttonClasses = 
-		"text-white bg-dark-purple border-2 border-white rounded-md w-full p-3 md:px-6 md:py-2 duration-300 translate-x-1 -translate-y-1 hover:translate-x-0 hover:-translate-y-0 hover:cursor-pointer flex items-center hover:font-bold";
-
-	//props
-	defineProps({
-		text: {
-			type: String,
-			required: true
+	const button = cva("button", {
+		variants: {
+			intent: {
+				primary: "text-white bg-dark-purple border-2 border-white rounded-md w-full p-3 md:px-6 md:py-2 duration-300 translate-x-1 -translate-y-1 hover:translate-x-0 hover:-translate-y-0 hover:cursor-pointer flex items-center hover:font-bold",
+				secondary: "text-black bg-white border-2 border-white rounded-md w-full p-3 md:px-6 md:py-2 duration-300 translate-x-1 -translate-y-1 hover:translate-x-0 hover:-translate-y-0 hover:cursor-pointer flex items-center hover:font-bold"
+			},
+			size: {
+				small: "",
+				medium: "",
+				large: ""
+			}
 		},
-		loadingText: {
-			type: String,
-			required: false
-		},
-		loading: {
-			type: Boolean,
-			default: false
-		}
+		compoundVariants: [
+			{
+				intent: "primary",
+				size: "small",
+				class: "text-white bg-red-500 border-2 border-white rounded-md w-full p-3 md:px-6 md:py-2 duration-300 translate-x-1 -translate-y-1 hover:translate-x-0 hover:-translate-y-0 hover:cursor-pointer flex items-center hover:font-bold"
+			}
+		]
 	})
 
-	//methods
+	type ButtonProps = VariantProps<typeof button>;
 
-	const turnBtnOn = () => {
-		loading.value = true;
-
-		setTimeout(() => {
-			loading.value = false;
-		}, 2000);
-	}
+	withDefaults(
+		defineProps<{ intent: ButtonProps["intent"]; size: ButtonProps["size"]}>(),
+		{
+			intent: "primary",
+			size: "medium"
+		}
+	)
 </script>

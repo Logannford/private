@@ -21,21 +21,28 @@
           <!-- CTA section -->
           <div class="flex gap-x-8 mt-5">
             <div class="bg-light-grey rounded-md">
-              <PrismicLink 
-                :field="slice.primary.homepage_primary_cta"
-                :class="buttonClasses"
+              <ButtonsLightButton
+                intent="primary"
+                size="medium"
               >
-                Getting Started
-              </PrismicLink>
+                <PrismicLink 
+                  :field="slice.primary.homepage_primary_cta"
+                >
+                  Getting Started
+                </PrismicLink>
+              </ButtonsLightButton>
             </div>
             <div class="bg-light-grey rounded-md">
-              <PrismicLink 
-                :field="slice.primary.homepage_secondary_cta"
-                :class="buttonClasses"
-                class="!bg-white !text-black"
+              <ButtonsLightButton
+                intent="secondary"
+                size="medium"
               >
-                Free Trial
-              </PrismicLink>
+                <PrismicLink 
+                  :field="slice.primary.homepage_secondary_cta"
+                >
+                  Free Trial
+                </PrismicLink>
+              </ButtonsLightButton>
             </div>
           </div>
         </div>
@@ -60,8 +67,6 @@
 <script setup lang="ts">
 import { Content } from "@prismicio/client";
 import gsap from 'gsap';
-
-
 
 const buttonClasses = 
 		"text-white bg-dark-purple border-2 border-white rounded-md w-full p-3 md:px-6 md:py-2 duration-300 translate-x-1 -translate-y-1 hover:translate-x-0 hover:-translate-y-0 hover:cursor-pointer flex items-center hover:font-bold";
